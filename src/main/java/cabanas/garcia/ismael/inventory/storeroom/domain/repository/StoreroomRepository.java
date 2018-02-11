@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.repository;
 
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.storeroom.Storeroom;
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.storeroom.StoreroomId;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.Storeroom;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.StoreroomId;
 
 import java.util.Optional;
 

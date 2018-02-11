@@ -1,6 +1,4 @@
-package cabanas.garcia.ismael.inventory.storeroom.domain.model.storeroom;
-
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.ProductId;
+package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
 import java.util.ArrayList;
 import java.util.List;

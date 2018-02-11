@@ -1,7 +1,6 @@
-package cabanas.garcia.ismael.inventory.storeroom.domain.model.storeroom;
+package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
 import cabanas.garcia.ismael.inventory.common.Entity;
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.ProductId;
 
 public class Storeroom extends Entity<StoreroomId> {
 
