@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StoreroomShould {
-
+/*
     private static final int ZERO = 0;
     private static final int FIVE = 5;
     private static final int TWO = 2;
@@ -56,7 +56,7 @@ public class StoreroomShould {
 
         assertThat(storeroom.stock(apple)).isEqualTo(TWO);
     }
-/*
+
     @Test public void
     out_of_stock_when_consume_all_products() {
         Product apple = new Product("2", "Apple");

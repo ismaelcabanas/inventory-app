@@ -1,38 +1,44 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.model.storeroom;
 
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.ProductId;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public class Stocks {
+public class ProductsStock {
 
-    private final List<Stock> stocks;
+    private final List<ProductStock> productsStock;
 
-    public Stocks() {
-        this.stocks = new ArrayList<>();
+    public ProductsStock() {
+        this.productsStock = new ArrayList<>();
     }
 
+    /*
     public void add(Stock stock) {
-        stocks.add(stock);
+        productsStock.add(stock);
     }
 
     public void addStock(Product product, int quantity) {
-        stocks.stream()
+        productsStock.stream()
                 .filter(stock -> stock.product().equals(product))
                 .findFirst()
                 .ifPresent(stock -> stock.add(quantity));
     }
 
     public void removeStock(Product product, int quantity) {
-        stocks.stream()
+        productsStock.stream()
                 .filter(stock -> stock.product().equals(product))
                 .findFirst()
                 .ifPresent(stock -> stock.remove(quantity));
     }
 
     public Optional<Stock> findStockBy(Product product) {
-        return stocks.stream()
+        return productsStock.stream()
                 .filter(stock -> stock.product().equals(product))
                 .findFirst();
+    }
+*/
+    public void newProductWithStock(ProductId productId, int stock) {
+
     }
 }

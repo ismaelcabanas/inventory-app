@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.storeroom.domain.model.storeroom;
+package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
 import cabanas.garcia.ismael.inventory.common.ValueObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -6,11 +6,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.UUID;
 
-public class StockId extends ValueObject<StockId>{
-
+public class ProductId extends ValueObject<ProductId> {
     private String id;
 
-    public StockId() {
+    public ProductId() {
         id = UUID.randomUUID().toString();
     }
 
@@ -23,15 +22,9 @@ public class StockId extends ValueObject<StockId>{
     }
 
     @Override
-    protected boolean equalsCore(StockId other) {
+    protected boolean equalsCore(ProductId other) {
         return new EqualsBuilder()
                 .append(id, other.id)
                 .isEquals();
     }
-
-    public String id() {
-        return id;
-    }
-
-
 }
