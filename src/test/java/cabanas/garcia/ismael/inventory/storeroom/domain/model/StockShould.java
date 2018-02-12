@@ -1,8 +1,11 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StockShould {
 
@@ -15,5 +18,13 @@ public class StockShould {
 
         new Stock(-5);
     }
-    
+
+    @Test public void
+    increase_stock() {
+        Stock stockOfFive = new Stock(5);
+
+        Stock stock = stockOfFive.increase(3);
+
+        assertThat(stock).isEqualTo(new Stock(8));
+    }
 }
