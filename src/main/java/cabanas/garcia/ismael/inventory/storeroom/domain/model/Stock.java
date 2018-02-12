@@ -41,8 +41,8 @@ public class Stock extends ValueObject<Stock> {
                 '}';
     }
 
-    public Stock increase(int stock) {
-        return new Stock(amount + stock);
+    public Stock increase(Stock stock) {
+        return new Stock(amount + stock.value());
     }
 
     /*

@@ -17,7 +17,7 @@ public class ProductStockShould {
         int actualStock = 5;
         ProductStock productStock = new ProductStock(productId, actualStock);
 
-        productStock.addStock(5);
+        productStock.addStock(new Stock(5));
 
         assertThat(productStock.stock()).isEqualTo(new Stock(10));
     }

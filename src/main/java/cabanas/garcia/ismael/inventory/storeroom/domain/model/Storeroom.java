@@ -27,12 +27,12 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         this.productStocks.addAll(Arrays.asList(productStocks));
     }
 
-    public void fill(ProductId productId, int amount) {
+    public void fill(ProductId productId, Stock stock) {
         ProductStock productStock = productStocks.stream()
                 .filter(ps -> ps.product().equals(productId))
                 .findFirst()
                 .orElseThrow(() -> new ProductNotFoundException(productId));
-        productStock.addStock(amount);
+        productStock.addStock(stock);
     }
 
     public Stock stockOf(ProductId productId) {

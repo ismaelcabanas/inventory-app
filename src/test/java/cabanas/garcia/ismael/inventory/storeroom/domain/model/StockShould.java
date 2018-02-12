@@ -23,7 +23,7 @@ public class StockShould {
     increase_stock() {
         Stock stockOfFive = new Stock(5);
 
-        Stock stock = stockOfFive.increase(3);
+        Stock stock = stockOfFive.increase(new Stock(3));
 
         assertThat(stock).isEqualTo(new Stock(8));
     }
