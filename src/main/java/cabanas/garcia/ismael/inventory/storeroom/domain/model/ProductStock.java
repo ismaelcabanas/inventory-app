@@ -2,12 +2,15 @@ package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
 import cabanas.garcia.ismael.inventory.common.Entity;
 
+import java.util.Objects;
+
 public class ProductStock extends Entity<ProductStockId> {
     private final ProductId productId;
     private Stock stock;
 
     public ProductStock(ProductId productId, int stockAmount) {
         super(new ProductStockId());
+        Objects.requireNonNull(productId, "ProductId must not be null");
         this.productId = productId;
         this.stock = new Stock(stockAmount);
     }
