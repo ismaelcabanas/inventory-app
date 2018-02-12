@@ -2,21 +2,24 @@ package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
 import cabanas.garcia.ismael.inventory.common.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Storeroom extends Entity<StoreroomId> {
 
     private final String name;
-    private final ProductsStock productsStock;
+    private final List<ProductStock> productStocks;
 
     public Storeroom(StoreroomId storeroomId, String name) {
         super(storeroomId);
         this.name = name;
-        this.productsStock = new ProductsStock();
+        this.productStocks = new ArrayList<>();
     }
 
     private Storeroom(Builder builder) {
         super(builder.theStoreroomId);
         this.name = builder.theName;
-        this.productsStock = new ProductsStock();
+        this.productStocks = new ArrayList<>();
     }
 
     /*
@@ -42,7 +45,7 @@ public class Storeroom extends Entity<StoreroomId> {
     */
 
     public void addNewProduct(ProductId productId, int amount) {
-        productsStock.newProductWithStock(productId, amount);
+
     }
 
     public Stock stockOf(ProductId productId) {
