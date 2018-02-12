@@ -17,7 +17,6 @@ public class ProductStockId extends ValueObject<ProductStockId>{
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
-                .appendSuper(super.hashCode())
                 .append(id)
                 .toHashCode();
     }

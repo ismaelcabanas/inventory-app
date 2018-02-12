@@ -1,9 +1,6 @@
 package cabanas.garcia.ismael.inventory.storeroom.application;
 
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.ProductId;
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.Stock;
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.Storeroom;
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.StoreroomId;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.*;
 import cabanas.garcia.ismael.inventory.storeroom.domain.repository.StoreroomRepository;
 import cabanas.garcia.ismael.inventory.storeroom.stubs.StoreroomSuccessRepositoryStub;
 import org.junit.Rule;
@@ -28,21 +25,13 @@ public class FillStoreroomServiceShould {
         ProductId productId = new ProductId();
         StoreroomId storeroomId = new StoreroomId();
         Stock initialStock = new Stock(FIVE_UNITS);
-        Storeroom storeroom = anStoreroomWithProductAndStock(storeroomId, productId, initialStock);
+        Storeroom storeroom = StoreroomUtil.anStoreroomWithProductAndStock(storeroomId, productId, initialStock);
         storeroomSuccessRepositoryStub = new StoreroomSuccessRepositoryStub(storeroomRepository, storeroom);
         FillStoreroomService fillStoreroomService = new FillStoreroomService(storeroomSuccessRepositoryStub);
 
         fillStoreroomService.fill(storeroomId, productId, FIVE_UNITS);
 
         verifySaveProductInStoreroomWithAmount(storeroomId, productId, new Stock(TEN_UNITS));
-    }
-
-    private Storeroom anStoreroomWithProductAndStock(StoreroomId storeroomId, ProductId productId, Stock stock) {
-        Storeroom storeroom = Storeroom.builder(storeroomId)
-                .withName("Test Storeroom")
-                .build();
-        storeroom.addNewProduct(productId, stock.value());
-        return storeroom;
     }
 
     private void verifySaveProductInStoreroomWithAmount(StoreroomId storeroomId, ProductId productId, Stock stock) {

@@ -20,7 +20,6 @@ public class Stock extends ValueObject<Stock> {
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
-                .appendSuper(super.hashCode())
                 .append(amount)
                 .toHashCode();
     }
@@ -37,6 +36,10 @@ public class Stock extends ValueObject<Stock> {
         return "Stock{" +
                 "amount=" + amount +
                 '}';
+    }
+
+    public Stock increase(int stock) {
+        return new Stock(amount + stock);
     }
 
     /*

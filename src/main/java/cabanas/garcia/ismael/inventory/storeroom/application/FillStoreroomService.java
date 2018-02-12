@@ -17,7 +17,7 @@ public class FillStoreroomService {
         Storeroom storeroom =
                 storeroomRepository.findById(storeroomId).orElseThrow(() -> new StoreroomNotFoundException(storeroomId));
 
-        storeroom.addNewProduct(productId, amount);
+        storeroom.fill(productId, amount);
 
         storeroomRepository.save(storeroom);
     }

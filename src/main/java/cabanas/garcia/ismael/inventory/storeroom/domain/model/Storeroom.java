@@ -1,11 +1,12 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
-import cabanas.garcia.ismael.inventory.common.Entity;
+import cabanas.garcia.ismael.inventory.common.AgreggateRoot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Storeroom extends Entity<StoreroomId> {
+public class Storeroom extends AgreggateRoot<StoreroomId> {
 
     private final String name;
     private final List<ProductStock> productStocks;
@@ -22,34 +23,23 @@ public class Storeroom extends Entity<StoreroomId> {
         this.productStocks = new ArrayList<>();
     }
 
-    /*
-    public void addNewProduct(Product product) {
-        // TODO only register new products if it is not in stock
-        Stock stock = new Stock(new ProductStockId(), this, product, 0);
-        productsStock.add(stock);
+    void load(ProductStock... productStocks) {
+        this.productStocks.addAll(Arrays.asList(productStocks));
     }
 
-    public void addStock(Product product, int quantity) {
-        productsStock.addStock(product, quantity);
-    }
-
-
-    public int stock(Product product) {
-        Optional<Stock> stockOfProduct = productsStock.findStockBy(product);
-        return (stockOfProduct.isPresent() ? stockOfProduct.get().quantity() : -1);
-    }
-
-    public void consumeStock(Product product, int quantity) {
-        productsStock.removeStock(product, quantity);
-    }
-    */
-
-    public void addNewProduct(ProductId productId, int amount) {
-
+    public void fill(ProductId productId, int amount) {
+        ProductStock productStock = productStocks.stream()
+                .filter(ps -> ps.product().equals(productId))
+                .findFirst()
+                .orElseThrow(() -> new ProductNotFoundException(productId));
+        productStock.addStock(amount);
     }
 
     public Stock stockOf(ProductId productId) {
-        return Stock.NONE;
+        return productStocks.stream()
+                .filter(ps -> ps.product().equals(productId))
+                .map(ProductStock::stock)
+                .findFirst().orElseThrow(() -> new ProductNotFoundException(productId));
     }
 
     public static Builder builder(StoreroomId storeroomId) {
