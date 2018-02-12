@@ -8,14 +8,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductStockShould {
 
+    private static final Stock ACTUAL_STOCK = new Stock(5);
+
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test public void
     add_stock() {
         ProductId productId = new ProductId();
-        int actualStock = 5;
-        ProductStock productStock = new ProductStock(productId, actualStock);
+        ProductStock productStock = new ProductStock(productId, ACTUAL_STOCK);
 
         productStock.addStock(new Stock(5));
 
@@ -26,7 +27,7 @@ public class ProductStockShould {
     throw_exception_if_product_not_present_when_create_instance() {
         expectedException.expect(NullPointerException.class);
 
-        new ProductStock(null, 5);
+        new ProductStock(null, ACTUAL_STOCK);
     }
 
 }

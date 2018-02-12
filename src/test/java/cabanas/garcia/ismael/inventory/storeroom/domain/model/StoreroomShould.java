@@ -22,7 +22,7 @@ public class StoreroomShould {
     @Before public void
     setUp() {
         storeroom = new Storeroom(new StoreroomId(), STOREROOM_NAME);
-        ProductStock productStock = new ProductStock(SOME_PRODUCT_ID, 20);
+        ProductStock productStock = new ProductStock(SOME_PRODUCT_ID, new Stock(20));
         storeroom.load(productStock);
     }
 
