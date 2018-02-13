@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
-import cabanas.garcia.ismael.inventory.common.ValueObject;
+import cabanas.garcia.ismael.inventory.common.domain.ValueObject;
 import cabanas.garcia.ismael.inventory.storeroom.domain.model.exceptions.InvalidStockException;
 import cabanas.garcia.ismael.inventory.storeroom.domain.model.exceptions.NegativeStockException;
 import org.apache.commons.lang3.builder.EqualsBuilder;

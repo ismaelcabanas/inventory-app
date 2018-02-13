@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
-import cabanas.garcia.ismael.inventory.common.Entity;
+import cabanas.garcia.ismael.inventory.common.domain.Entity;
 
 import java.util.Objects;
 

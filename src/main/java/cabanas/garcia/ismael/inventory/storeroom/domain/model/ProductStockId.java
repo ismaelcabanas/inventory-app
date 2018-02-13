@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
-import cabanas.garcia.ismael.inventory.common.ValueObject;
+import cabanas.garcia.ismael.inventory.common.domain.ValueObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

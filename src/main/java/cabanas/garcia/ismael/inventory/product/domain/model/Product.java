@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.product.domain.model;
 
-import cabanas.garcia.ismael.inventory.common.AgreggateRoot;
+import cabanas.garcia.ismael.inventory.common.domain.AgreggateRoot;
 
 import java.util.Objects;
 
@@ -30,8 +30,8 @@ public class Product extends AgreggateRoot<ProductId> {
         private ProductId productId;
         public String name;
 
-        public Builder withId(ProductId productId) {
-            this.productId = productId;
+        public Builder withId(ProductId theProductId) {
+            this.productId = theProductId;
             return this;
         }
 
