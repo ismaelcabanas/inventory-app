@@ -30,4 +30,14 @@ public class ProductStockShould {
         new ProductStock(null, ACTUAL_STOCK);
     }
 
+    @Test public void
+    remove_stock() {
+        ProductId productId = new ProductId();
+        ProductStock productStock = new ProductStock(productId, ACTUAL_STOCK);
+
+        productStock.removeStock(new Stock(3));
+
+        assertThat(productStock.stock()).isEqualTo(new Stock(2));
+    }
+
 }

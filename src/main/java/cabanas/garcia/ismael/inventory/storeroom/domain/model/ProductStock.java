@@ -23,7 +23,12 @@ public class ProductStock extends Entity<ProductStockId> {
         this.stock = this.stock.increase(stockToAdd);
     }
 
+    public void removeStock(Stock stockToRemove) {
+        this.stock = this.stock.decrease(stockToRemove);
+    }
+
     public Stock stock() {
         return this.stock;
     }
+
 }
