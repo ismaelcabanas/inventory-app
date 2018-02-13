@@ -31,18 +31,12 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
     }
 
     public void fill(ProductId productId, Stock stock) {
-        ProductStock productStock = productStocks.stream()
-                .filter(ps -> ps.product().equals(productId))
-                .findFirst()
-                .orElseThrow(() -> new ProductNotFoundException(productId));
+        ProductStock productStock = findProductStock(productId);
         productStock.addStock(stock);
     }
 
     public void consume(ProductId productId, Stock stock) {
-        ProductStock productStock = productStocks.stream()
-                .filter(ps -> ps.product().equals(productId))
-                .findFirst()
-                .orElseThrow(() -> new ProductNotFoundException(productId));
+        ProductStock productStock = findProductStock(productId);
         productStock.removeStock(stock);
     }
 
@@ -74,5 +68,12 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
             this.theStoreroomId = storeroomId;
             return this;
         }
+    }
+
+    private ProductStock findProductStock(ProductId productId) {
+        return productStocks.stream()
+                .filter(ps -> ps.product().equals(productId))
+                .findFirst()
+                .orElseThrow(() -> new ProductNotFoundException(productId));
     }
 }
