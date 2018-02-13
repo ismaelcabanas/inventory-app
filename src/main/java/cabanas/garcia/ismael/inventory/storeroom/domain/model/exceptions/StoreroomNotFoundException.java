@@ -1,4 +1,6 @@
-package cabanas.garcia.ismael.inventory.storeroom.domain.model;
+package cabanas.garcia.ismael.inventory.storeroom.domain.model.exceptions;
+
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.StoreroomId;
 
 import java.text.MessageFormat;
 

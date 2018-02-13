@@ -1,5 +1,7 @@
 package cabanas.garcia.ismael.inventory.storeroom.domain.model;
 
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.exceptions.InvalidStockException;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.exceptions.NegativeStockException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

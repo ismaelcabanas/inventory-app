@@ -4,7 +4,7 @@ import cabanas.garcia.ismael.inventory.storeroom.domain.model.Stock;
 import cabanas.garcia.ismael.inventory.storeroom.domain.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.storeroom.domain.model.ProductId;
 import cabanas.garcia.ismael.inventory.storeroom.domain.model.Storeroom;
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.StoreroomNotFoundException;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.exceptions.StoreroomNotFoundException;
 import cabanas.garcia.ismael.inventory.storeroom.domain.repository.StoreroomRepository;
 
 public class FillStoreroomService {
