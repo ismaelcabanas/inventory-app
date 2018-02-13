@@ -2,7 +2,6 @@ package cabanas.garcia.ismael.inventory.product.application;
 
 import cabanas.garcia.ismael.inventory.product.domain.model.Product;
 import cabanas.garcia.ismael.inventory.product.domain.model.ProductId;
-import cabanas.garcia.ismael.inventory.product.domain.model.ProductUtil;
 import cabanas.garcia.ismael.inventory.product.domain.repository.ProductRepository;
 import cabanas.garcia.ismael.inventory.product.stubs.SuccessProductRepositoryStub;
 import org.junit.Rule;
@@ -24,8 +23,7 @@ public class RegisterNewProductServiceShould {
     @Test public void
     add_new_product() {
         ProductId productId = new ProductId();
-        Product product = ProductUtil.someProductWithName(productId, SOME_PRODUCT);
-        productRepositoryStub = new SuccessProductRepositoryStub(productRepository, product);
+        productRepositoryStub = new SuccessProductRepositoryStub(productRepository);
         RegisterNewProductService registerNewProductService = new RegisterNewProductService(productRepositoryStub);
 
         registerNewProductService.register(SOME_PRODUCT);
