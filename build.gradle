@@ -19,6 +19,7 @@ apply plugin: 'idea'
 apply plugin: 'docker-compose'
 
 apply from: 'build-static-code-analysis.gradle'
+//apply from: 'build-integration-tests.gradle'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -27,35 +28,6 @@ repositories {
     mavenCentral()
 }
 
-configurations {
-    integrationtestCompile.extendsFrom testCompile
-    integrationtestRuntime.extendsFrom testRuntime
-    acceptancetestCompile.extendsFrom testCompile
-    acceptancetestRuntime.extendsFrom testRuntime
-}
-
-sourceSets {
-    integrationtest {
-        java {
-            compileClasspath += main.output + test.output
-            runtimeClasspath += main.output + test.output
-
-            // Use "java" if you don't use Scala as a programming language
-            srcDir file('src/integration-test/java')
-        }
-        resources.srcDir file('src/integration-test/resources')
-    }
-    acceptancetest {
-        java {
-            compileClasspath += main.output + test.output
-            runtimeClasspath += main.output + test.output
-
-            // Use "java" if you don't use Scala as a programming language
-            srcDir file('src/acceptance-test/java')
-        }
-        resources.srcDir file('src/acceptance-test/resources')
-    }
-}
 
 dependencies {
 
@@ -99,38 +71,3 @@ tasks.withType(Test) {
         }
     }
 }
-
-task integrationTest(type: Test) {
-    testClassesDir = sourceSets.integrationtest.output.classesDir
-    classpath = sourceSets.integrationtest.runtimeClasspath
-    outputs.upToDateWhen { false }
-
-    // This is not needed, but I like to see which tests have run
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
-}
-
-/*
-integrationTest {
-    useJUnit {
-        includeCategories 'cabanas.garcia.ismael.storeroom.IntegrationTests'
-    }
-}
-*/
-
-dockerCompose.isRequiredBy(integrationTest)
-
-dockerCompose {
-    useComposeFiles = ['docker-compose-integration-test.yml'] // like 'docker-compose -f <file>'
-    captureContainersOutput = true // prints output of all containers to Gradle output - very useful for debugging
-    stopContainers = true // doesn't call `docker-compose down` - useful for debugging
-    removeContainers = true
-}
-
-integrationTest.doFirst {
-    systemProperty 'postgres.host', dockerCompose.servicesInfos.postgresql.'postgresql_1'.host
-    systemProperty 'postgres.port', dockerCompose.servicesInfos.postgresql.'postgresql_1'.port
-}
-
-integrationTest.mustRunAfter test
