@@ -19,8 +19,8 @@ public class ProductStock extends Entity<ProductStockId> {
         return this.productId;
     }
 
-    public void addStock(Stock stock) {
-        this.stock = this.stock.increase(stock);
+    public void addStock(Stock stockToAdd) {
+        this.stock = this.stock.increase(stockToAdd);
     }
 
     public Stock stock() {

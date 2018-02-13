@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Storeroom extends AgreggateRoot<StoreroomId> {
 
+    @SuppressWarnings("PMD")
     private final String name;
     private final List<ProductStock> productStocks;
 
@@ -23,8 +24,8 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         this.productStocks = new ArrayList<>();
     }
 
-    void load(ProductStock... productStocks) {
-        this.productStocks.addAll(Arrays.asList(productStocks));
+    void load(ProductStock... theProductStocks) {
+        this.productStocks.addAll(Arrays.asList(theProductStocks));
     }
 
     public void fill(ProductId productId, Stock stock) {

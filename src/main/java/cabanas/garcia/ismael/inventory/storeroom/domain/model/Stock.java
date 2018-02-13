@@ -10,7 +10,7 @@ public class Stock extends ValueObject<Stock> {
     private final int amount;
 
     public Stock(int amount) {
-        if(amount < 0) {
+        if (amount < 0) {
             throw new InvalidStockException("Invalid stock. It must be greater or equal than 0");
         }
         this.amount = amount;
@@ -36,9 +36,9 @@ public class Stock extends ValueObject<Stock> {
 
     @Override
     public String toString() {
-        return "Stock{" +
-                "amount=" + amount +
-                '}';
+        return "Stock{"
+                + "amount=" + amount
+                + '}';
     }
 
     public Stock increase(Stock stock) {

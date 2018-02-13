@@ -1,6 +1,9 @@
 package cabanas.garcia.ismael.inventory.storeroom.application;
 
-import cabanas.garcia.ismael.inventory.storeroom.domain.model.*;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.ProductId;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.Storeroom;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.StoreroomId;
+import cabanas.garcia.ismael.inventory.storeroom.domain.model.Stock;
 import cabanas.garcia.ismael.inventory.storeroom.domain.repository.StoreroomRepository;
 import cabanas.garcia.ismael.inventory.storeroom.stubs.StoreroomSuccessRepositoryStub;
 import org.junit.Rule;
@@ -8,6 +11,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
+import static cabanas.garcia.ismael.inventory.storeroom.domain.model.StoreroomUtil.anStoreroomWithProductAndStock;
 
 public class FillStoreroomServiceShould {
 
@@ -25,7 +30,7 @@ public class FillStoreroomServiceShould {
         ProductId productId = new ProductId();
         StoreroomId storeroomId = new StoreroomId();
         Stock initialStock = new Stock(FIVE_UNITS);
-        Storeroom storeroom = StoreroomUtil.anStoreroomWithProductAndStock(storeroomId, productId, initialStock);
+        Storeroom storeroom = anStoreroomWithProductAndStock(storeroomId, productId, initialStock);
         storeroomSuccessRepositoryStub = new StoreroomSuccessRepositoryStub(storeroomRepository, storeroom);
         FillStoreroomService fillStoreroomService = new FillStoreroomService(storeroomSuccessRepositoryStub);
 

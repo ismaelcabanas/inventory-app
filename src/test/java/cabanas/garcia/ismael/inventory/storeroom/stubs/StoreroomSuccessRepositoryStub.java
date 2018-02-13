@@ -17,9 +17,9 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
     private final StoreroomRepository storeroomRepositoryMock;
     private final Storeroom storeroom;
 
-    public StoreroomSuccessRepositoryStub(StoreroomRepository storeroomRepositoryMock, Storeroom storeroom) {
+    public StoreroomSuccessRepositoryStub(StoreroomRepository storeroomRepositoryMock, Storeroom theStoreroom) {
         this.storeroomRepositoryMock = storeroomRepositoryMock;
-        this.storeroom = storeroom;
+        this.storeroom = theStoreroom;
     }
 
     public void verifySaveProductInStoreroomWithStock(StoreroomId storeroomId, ProductId productId, Stock stock) {
@@ -35,7 +35,7 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
     }
 
     @Override
-    public void save(Storeroom storeroom) {
-        storeroomRepositoryMock.save(storeroom);
+    public void save(Storeroom storeroomToSave) {
+        storeroomRepositoryMock.save(storeroomToSave);
     }
 }

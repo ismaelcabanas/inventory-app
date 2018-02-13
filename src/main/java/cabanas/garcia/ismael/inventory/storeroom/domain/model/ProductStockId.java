@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.UUID;
 
-public class ProductStockId extends ValueObject<ProductStockId>{
+public class ProductStockId extends ValueObject<ProductStockId> {
 
     private String id;
 
