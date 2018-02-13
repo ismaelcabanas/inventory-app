@@ -13,15 +13,15 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
     private final List<ProductStock> productStocks;
 
     public Storeroom(StoreroomId storeroomId, String name) {
-        super(storeroomId);
         this.name = name;
         this.productStocks = new ArrayList<>();
+        setId(storeroomId);
     }
 
     private Storeroom(Builder builder) {
-        super(builder.theStoreroomId);
         this.name = builder.theName;
         this.productStocks = new ArrayList<>();
+        setId(builder.theStoreroomId);
     }
 
     void load(ProductStock... theProductStocks) {

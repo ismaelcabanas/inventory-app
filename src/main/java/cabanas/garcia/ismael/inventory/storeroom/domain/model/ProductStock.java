@@ -9,9 +9,9 @@ public class ProductStock extends Entity<ProductStockId> {
     private Stock stock;
 
     public ProductStock(ProductId productId, Stock stock) {
-        super(new ProductStockId());
         Objects.requireNonNull(productId, "ProductId must not be null");
         Objects.requireNonNull(stock, "Stock must not be null");
+        setId(new ProductStockId());
         this.productId = productId;
         this.stock = stock;
     }
