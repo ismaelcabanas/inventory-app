@@ -36,6 +36,14 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         productStock.addStock(stock);
     }
 
+    public void consume(ProductId productId, Stock stock) {
+        ProductStock productStock = productStocks.stream()
+                .filter(ps -> ps.product().equals(productId))
+                .findFirst()
+                .orElseThrow(() -> new ProductNotFoundException(productId));
+        productStock.removeStock(stock);
+    }
+
     public Stock stockOf(ProductId productId) {
         return productStocks.stream()
                 .filter(ps -> ps.product().equals(productId))

@@ -55,4 +55,11 @@ public class StoreroomShould {
 
         storeroom.stockOf(SOME_WRONG_PRODUCT_ID);
     }
+
+    @Test public void
+    consume_a_stock_of_given_product() {
+        storeroom.consume(SOME_PRODUCT_ID, STOCK_OF_FIVE);
+
+        assertThat(storeroom.stockOf(SOME_PRODUCT_ID)).isEqualTo(new Stock(15));
+    }
 }
