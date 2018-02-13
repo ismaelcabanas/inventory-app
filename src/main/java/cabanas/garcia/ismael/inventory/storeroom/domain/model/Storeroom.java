@@ -5,6 +5,7 @@ import cabanas.garcia.ismael.inventory.common.AgreggateRoot;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Storeroom extends AgreggateRoot<StoreroomId> {
 
@@ -12,10 +13,11 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
     private final String name;
     private final List<ProductStock> productStocks;
 
-    public Storeroom(StoreroomId storeroomId, String name) {
+    public Storeroom(String name) {
+        Objects.requireNonNull(name, "The name is required");
         this.name = name;
         this.productStocks = new ArrayList<>();
-        setId(storeroomId);
+        setId(new StoreroomId());
     }
 
     private Storeroom(Builder builder) {
@@ -51,25 +53,25 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
                 .findFirst().orElseThrow(() -> new ProductNotFoundException(productId));
     }
 
-    public static Builder builder(StoreroomId storeroomId) {
-        return new Builder(storeroomId);
+    public static Builder builder(String name) {
+        return new Builder(name);
     }
 
     public static final class Builder {
 
-        private final StoreroomId theStoreroomId;
-        public String theName;
+        private StoreroomId theStoreroomId;
+        public final String theName;
 
-        public Builder(StoreroomId storeroomId) {
-            this.theStoreroomId = storeroomId;
+        public Builder(String name) {
+            this.theName = name;
         }
 
         public Storeroom build() {
             return new Storeroom(this);
         }
 
-        public Builder withName(String name) {
-            this.theName = name;
+        public Builder withId(StoreroomId storeroomId) {
+            this.theStoreroomId = storeroomId;
             return this;
         }
     }

@@ -21,7 +21,7 @@ public class StoreroomShould {
 
     @Before public void
     setUp() {
-        storeroom = new Storeroom(new StoreroomId(), STOREROOM_NAME);
+        storeroom = new Storeroom(STOREROOM_NAME);
         ProductStock productStock = new ProductStock(SOME_PRODUCT_ID, new Stock(20));
         storeroom.load(productStock);
     }
@@ -61,5 +61,12 @@ public class StoreroomShould {
         storeroom.consume(SOME_PRODUCT_ID, STOCK_OF_FIVE);
 
         assertThat(storeroom.stockOf(SOME_PRODUCT_ID)).isEqualTo(new Stock(15));
+    }
+
+    @Test public void
+    throw_exception_if_name_not_present_when_create_instance() {
+        exception.expect(NullPointerException.class);
+
+        new Storeroom(null);
     }
 }
