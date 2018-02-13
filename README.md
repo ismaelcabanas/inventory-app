@@ -1,8 +1,20 @@
-Esto pretende ser un esqueleto para mis proyectos Java desarrollados con Gradle.
+[![Build Status](https://travis-ci.org/ismaelcabanas/inventory-app.svg?branch=master)](https://travis-ci.org/ismaelcabanas/inventory-app)
 
-Para utilizar este esqueleto debemos clonar el proyecto y realizar una serie de cambios:
+# Inventory for storeroom application demonstrating concepts in the context of DDD. 
 
- 1. Modificar la URL del repositorio git, porque nos interesa crear un nuevo repositorio Git, por ejemplo `git remote set-url origin git@github.com:ismaelcabanas/snackmachine-app.git`
- 1. Modificar la carpeta del proyecto.
- 1. Modificar **settings.gradle** e modificar el nombre del proyecto a nuestro gusto.
- 
+Esta aplicación muestra cómo implementar 
+
+* un sistema de despensa de una vivienda particular, para tener una gestión de los productos que existen y su stock
+
+en el contexto de 
+
+* Domain Driven Design (DDD)
+
+# Visión general
+
+La aplicación trata de simular el consumo y reposición de productos de una despensa. 
+
+## Tecnologías/frameworks:
+
+* Java
+* Spring Boot

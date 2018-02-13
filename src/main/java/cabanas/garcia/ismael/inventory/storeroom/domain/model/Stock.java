@@ -45,34 +45,11 @@ public class Stock extends ValueObject<Stock> {
         return new Stock(amount + stock.value());
     }
 
-    /*
-    private final Storeroom storeroom;
-    private final Product product;
-    private int quantity;
-    */
-
-    /*
-    public Stock(Storeroom storeroom, Product product, int quantity) {
-        this.storeroom = storeroom;
-        this.product = product;
-        this.quantity = quantity;
+    public Stock decrease(Stock stock) {
+        if (amount - stock.value() < 0) {
+            throw new NegativeStockException();
+        }
+        return new Stock(amount - stock.value());
     }
 
-
-    public Product product() {
-        return product;
-    }
-
-    public void add(int quantity) {
-        this.quantity += quantity;
-    }
-
-    public int quantity() {
-        return quantity;
-    }
-
-    public void remove(int quantity) {
-        this.quantity -= quantity;
-    }
-    */
 }
