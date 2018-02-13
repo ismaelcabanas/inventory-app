@@ -11,6 +11,7 @@ public class ProductStock extends Entity<ProductStockId> {
     public ProductStock(ProductId productId, Stock stock) {
         super(new ProductStockId());
         Objects.requireNonNull(productId, "ProductId must not be null");
+        Objects.requireNonNull(stock, "Stock must not be null");
         this.productId = productId;
         this.stock = stock;
     }

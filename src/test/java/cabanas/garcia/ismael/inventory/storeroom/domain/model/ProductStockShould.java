@@ -31,6 +31,13 @@ public class ProductStockShould {
     }
 
     @Test public void
+    throw_exception_if_stock_not_present_when_create_instance() {
+        expectedException.expect(NullPointerException.class);
+
+        new ProductStock(new ProductId(), null);
+    }
+
+    @Test public void
     remove_stock() {
         ProductId productId = new ProductId();
         ProductStock productStock = new ProductStock(productId, ACTUAL_STOCK);
