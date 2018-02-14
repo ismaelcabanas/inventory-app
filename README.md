@@ -5,7 +5,8 @@
 
 Esta aplicación muestra cómo implementar 
 
-* un sistema de despensa de una vivienda particular, para tener una gestión de los productos que existen y su stock
+* un sistema de despensa de una vivienda particular, para tener una gestión de los productos que existen en la despensa 
+y gestionar su stock.
 
 en el contexto de 
 

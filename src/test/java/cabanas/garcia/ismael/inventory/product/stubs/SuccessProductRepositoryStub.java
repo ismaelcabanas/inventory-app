@@ -2,7 +2,6 @@ package cabanas.garcia.ismael.inventory.product.stubs;
 
 import cabanas.garcia.ismael.inventory.product.domain.model.Product;
 import cabanas.garcia.ismael.inventory.product.domain.repository.ProductRepository;
-import org.assertj.core.api.Assertions;
 import org.mockito.ArgumentCaptor;
 
 import static org.assertj.core.api.Assertions.assertThat;

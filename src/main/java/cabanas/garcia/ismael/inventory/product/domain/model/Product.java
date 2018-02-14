@@ -15,6 +15,7 @@ public class Product extends AgreggateRoot<ProductId> {
 
     private Product(Builder builder) {
         this.name = builder.name;
+        setId(builder.productId);
     }
 
     public static Builder builder() {
