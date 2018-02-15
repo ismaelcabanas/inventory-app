@@ -1,6 +1,8 @@
 package cabanas.garcia.ismael.inventory.product.domain.model;
 
 import cabanas.garcia.ismael.inventory.common.domain.AgreggateRoot;
+import cabanas.garcia.ismael.inventory.common.domain.DomainEventPublisher;
+import cabanas.garcia.ismael.inventory.product.domain.event.ProductRegisteredEvent;
 
 import java.util.Objects;
 
@@ -11,6 +13,7 @@ public class Product extends AgreggateRoot<ProductId> {
         Objects.requireNonNull(name, "Name is required");
         this.name = name;
         setId(new ProductId());
+        DomainEventPublisher.getInstance().publish(new ProductRegisteredEvent(id()));
     }
 
     private Product(Builder builder) {

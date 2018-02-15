@@ -81,8 +81,11 @@ public class DomainEventPublisherShould {
 
         @Override
         public boolean isSubscribedTo(DomainEvent domainEvent) {
-            FakeDomainEvent fakeDomainEvent = (FakeDomainEvent) domainEvent;
-            return eventName.equals(fakeDomainEvent.eventName);
+            if (domainEvent instanceof FakeDomainEvent) {
+                FakeDomainEvent fakeDomainEvent = (FakeDomainEvent) domainEvent;
+                return eventName.equals(fakeDomainEvent.eventName);
+            }
+            return false;
         }
 
         @Override
