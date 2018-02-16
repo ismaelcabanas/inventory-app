@@ -20,19 +20,19 @@ public class ProductRegisterDomainEventSubscriberShould {
 
     private StoreroomSuccessRepositoryStub storeroomSuccessRepositoryStub;
 
-   @Test public void
-   persist_a_new_product_with_stock_0_in_storeroom_when_handle_a_product_registered_event() {
-       Storeroom storeroom = new Storeroom("Test");
-       storeroomSuccessRepositoryStub = new StoreroomSuccessRepositoryStub(storeroomRepository, storeroom);
-       ProductRegisterDomainEventSubscriber subscriber =
-               new ProductRegisterDomainEventSubscriber(storeroomSuccessRepositoryStub);
-       String productId = UUID.randomUUID().toString();
-       ProductRegisteredEvent productRegisteredEvent = new ProductRegisteredEvent(productId);
+    @Test public void
+    persist_a_new_product_with_stock_0_in_storeroom_when_handle_a_product_registered_event() {
+        Storeroom storeroom = new Storeroom("Test");
+        storeroomSuccessRepositoryStub = new StoreroomSuccessRepositoryStub(storeroomRepository, storeroom);
+        ProductRegisterDomainEventSubscriber subscriber =
+                new ProductRegisterDomainEventSubscriber(storeroomSuccessRepositoryStub);
+        String productId = UUID.randomUUID().toString();
+        ProductRegisteredEvent productRegisteredEvent = new ProductRegisteredEvent(productId);
 
-       subscriber.handle(productRegisteredEvent);
+        subscriber.handle(productRegisteredEvent);
 
-       verifySaveProductInStoreroomWithStockZero(storeroom.id(), productId);
-   }
+        verifySaveProductInStoreroomWithStockZero(storeroom.id(), productId);
+    }
 
     private void verifySaveProductInStoreroomWithStockZero(StoreroomId storeroomId, String productId) {
         storeroomSuccessRepositoryStub.verifySaveProductInStoreroomWithStock(storeroomId,
