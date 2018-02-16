@@ -8,27 +8,27 @@ import java.util.UUID;
 
 public class ProductId extends ValueObject<ProductId> {
 
-    private String id;
+    private String value;
 
     public ProductId() {
-        this.id = UUID.randomUUID().toString();
+        this.value = UUID.randomUUID().toString();
     }
 
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
-                .append(id)
+                .append(value)
                 .toHashCode();
     }
 
     @Override
     protected boolean equalsCore(ProductId other) {
         return new EqualsBuilder()
-                .append(id, other.id)
+                .append(value, other.value)
                 .isEquals();
     }
 
-    public String id() {
-        return id;
+    public String value() {
+        return value;
     }
 }

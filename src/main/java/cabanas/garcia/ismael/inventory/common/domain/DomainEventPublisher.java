@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DomainEventPublisher {
-    private static DomainEventPublisher instance = null;
 
     private final List<DomainEventSubscriber> subscribers;
 
@@ -12,12 +11,12 @@ public class DomainEventPublisher {
         subscribers = new ArrayList<>();
     }
 
-    public static DomainEventPublisher getInstance() {
-        if (instance == null) {
-            instance = new DomainEventPublisher();
-        }
+    private static class LazyHolder {
+        static final DomainEventPublisher INSTANCE = new DomainEventPublisher();
+    }
 
-        return instance;
+    public static DomainEventPublisher getInstance() {
+        return LazyHolder.INSTANCE;
     }
 
     public void subscribe(DomainEventSubscriber subscriber) {

@@ -8,6 +8,8 @@ import cabanas.garcia.ismael.inventory.storeroom.domain.repository.StoreroomRepo
 import org.assertj.core.api.Assertions;
 import org.mockito.ArgumentCaptor;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.verify;
@@ -35,7 +37,13 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
     }
 
     @Override
+    public List<Storeroom> findAll() {
+        return Arrays.asList(storeroom);
+    }
+
+    @Override
     public void save(Storeroom storeroomToSave) {
         storeroomRepositoryMock.save(storeroomToSave);
     }
+
 }

@@ -1,16 +1,15 @@
 package cabanas.garcia.ismael.inventory.product.domain.event;
 
 import cabanas.garcia.ismael.inventory.common.domain.DomainEvent;
-import cabanas.garcia.ismael.inventory.product.domain.model.ProductId;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class ProductRegisteredEvent implements DomainEvent {
-    private final ProductId productId;
+    private final String productId;
     private final UUID id;
 
-    public ProductRegisteredEvent(ProductId productId) {
+    public ProductRegisteredEvent(String productId) {
         this.productId = productId;
         this.id = UUID.randomUUID();
     }
@@ -25,7 +24,7 @@ public class ProductRegisteredEvent implements DomainEvent {
         return LocalDateTime.now();
     }
 
-    public ProductId getProductId() {
+    public String getProductId() {
         return productId;
     }
 }

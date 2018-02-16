@@ -13,7 +13,7 @@ public class Product extends AgreggateRoot<ProductId> {
         Objects.requireNonNull(name, "Name is required");
         this.name = name;
         setId(new ProductId());
-        DomainEventPublisher.getInstance().publish(new ProductRegisteredEvent(id()));
+        DomainEventPublisher.getInstance().publish(new ProductRegisteredEvent(id().value()));
     }
 
     private Product(Builder builder) {

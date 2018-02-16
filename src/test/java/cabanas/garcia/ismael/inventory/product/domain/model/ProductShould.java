@@ -37,16 +37,16 @@ public class ProductShould {
         Product product = new Product(SOME_PRODUCT_NAME);
 
         assertProductRegisteredEventPublished(spySubscriber, product.id());
-        
+
         DomainEventPublisher.getInstance().unsubscribe(spySubscriber);
     }
 
     private void assertProductRegisteredEventPublished(SpySubscriber subscriber, ProductId productId) {
         assertThat(subscriber.getDomainEventHandled()).isInstanceOf(ProductRegisteredEvent.class);
-        assertThat(((ProductRegisteredEvent) subscriber.getDomainEventHandled()).getProductId()).isEqualTo(productId);
+        assertThat(((ProductRegisteredEvent) subscriber.getDomainEventHandled()).getProductId()).isEqualTo(productId.value());
     }
 
-    private class SpySubscriber implements DomainEventSubscriber {
+    private static class SpySubscriber implements DomainEventSubscriber {
         private DomainEvent domainEventHandled;
 
         @Override

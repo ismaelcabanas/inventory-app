@@ -12,10 +12,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DomainEventPublisherShould {
 
+    public static final String TEST_EVENT = "test-event";
+
     @Test public void
     notify_to_subscribers_when_publish_event() {
-        SpySubscriber spySubscriber = new SpySubscriber("test-event");
-        FakeDomainEvent fakeDomainEvent = new FakeDomainEvent("test-event");
+        SpySubscriber spySubscriber = new SpySubscriber(TEST_EVENT);
+        FakeDomainEvent fakeDomainEvent = new FakeDomainEvent(TEST_EVENT);
         subscribe(spySubscriber);
 
         publish(fakeDomainEvent);
@@ -25,7 +27,7 @@ public class DomainEventPublisherShould {
 
     @Test public void
     not_notify_to_subscribers_not_subscribed() {
-        SpySubscriber spySubscriber = new SpySubscriber("test-event");
+        SpySubscriber spySubscriber = new SpySubscriber(TEST_EVENT);
         FakeDomainEvent fakeDomainEvent = new FakeDomainEvent("other-test-event");
         subscribe(spySubscriber);
 
@@ -36,8 +38,8 @@ public class DomainEventPublisherShould {
 
     @Test public void
     unsubscribe_subscriber_subscribed() {
-        SpySubscriber spySubscriber = new SpySubscriber("test-event");
-        FakeDomainEvent fakeDomainEvent = new FakeDomainEvent("test-event");
+        SpySubscriber spySubscriber = new SpySubscriber(TEST_EVENT);
+        FakeDomainEvent fakeDomainEvent = new FakeDomainEvent(TEST_EVENT);
         subscribe(spySubscriber);
         unsubscribe(spySubscriber);
 
@@ -69,12 +71,12 @@ public class DomainEventPublisherShould {
         assertThat(subscriber.hasHandled(domainEvent)).isTrue();
     }
 
-    private class SpySubscriber implements DomainEventSubscriber {
+    private static class SpySubscriber implements DomainEventSubscriber {
         private final String eventName;
         private Optional<DomainEvent> domainEventHandled = Optional.empty();
         private boolean isHandle;
 
-        public SpySubscriber(String eventName) {
+        SpySubscriber(String eventName) {
             this.eventName = eventName;
             this.isHandle = false;
         }
@@ -95,24 +97,24 @@ public class DomainEventPublisherShould {
         }
 
 
-        public boolean hasHandled(DomainEvent domainEvent) {
-            if(domainEventHandled.isPresent()) {
+        boolean hasHandled(DomainEvent domainEvent) {
+            if (domainEventHandled.isPresent()) {
                 return domainEventHandled.get().equals(domainEvent);
             }
             return false;
         }
 
-        public boolean isHandled() {
+        boolean isHandled() {
             return isHandle;
         }
     }
 
-    private class FakeDomainEvent implements DomainEvent {
+    private static class FakeDomainEvent implements DomainEvent {
 
         private final String eventName;
         private final UUID uuid;
 
-        public FakeDomainEvent(String eventName) {
+        FakeDomainEvent(String eventName) {
             this.eventName = eventName;
             this.uuid = UUID.randomUUID();
         }
