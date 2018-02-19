@@ -40,6 +40,8 @@ ext {
 
 dependencies {
 
+    compile("org.springframework.boot:spring-boot-starter-web")
+
     compile("org.apache.commons:commons-lang3:3.5")
 
     testCompile("junit:junit:4.12")
@@ -48,6 +50,7 @@ dependencies {
     testCompile("info.cukes:cucumber-java8:1.2.5")
     testCompile("info.cukes:cucumber-junit:1.2.5")
     testCompile("info.cukes:cucumber-spring:1.2.4")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 

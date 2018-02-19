@@ -1,0 +1,17 @@
+
+spring:
+  application:
+    name: inventory-app
+  main:
+    banner-mode: "OFF"
+  datasource:
+      driver-class-name: org.postgresql.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      hikari:
+        maximumPoolSize: 30
+        poolName: inventory-app
+        minimumIdle: 5
+
+server:
+  port: 8000
+
