@@ -1,0 +1,20 @@
+docker:
+  host: "${DOCKER_IP:localhost}"
+
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://${docker.host}:5432/postgres?currentSchema=${inventory.database.schema}"
+    username: postgres
+    password: postgres
+
+flyway:
+  locations: classpath:db/migration
+  schemas: ${inventory.database.schema}
+
+jooq:
+  package-name: cabanas.garcia.ismael.inventory.infrastructure.repository.jooq
+  database: org.jooq.util.postgres.PostgresDatabase
+

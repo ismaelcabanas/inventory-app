@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(scanBasePackages = {
-        "cabanas.garcia.ismael.inventory.infrastructure"
-})
+        "cabanas.garcia.ismael.inventory.infrastructure.configuration"
+    })
 @SuppressWarnings("PMD.UseUtilityClass")
 public class Application {
     public static void main(String[] args) {

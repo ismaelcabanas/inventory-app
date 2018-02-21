@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://${postgres.host}:${postgres.port}/postgres?currentSchema=${inventory.database.schema}"
+    username: postgres
+    password: postgres
+
+logging:
+  level:
+    org:
+      springframework:
+        transaction: DEBUG
+        jdbc: TRACE
+
+flyway:
+    locations: classpath:db/migration
+    schemas: ${inventory.database.schema}
