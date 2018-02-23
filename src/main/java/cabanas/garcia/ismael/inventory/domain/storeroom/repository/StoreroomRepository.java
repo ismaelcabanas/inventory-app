@@ -15,4 +15,6 @@ public interface StoreroomRepository {
     Optional<Storeroom> findById(StoreroomId storeroomId);
 
     List<Storeroom> findAll();
+
+    void create(Storeroom storeroom);
 }

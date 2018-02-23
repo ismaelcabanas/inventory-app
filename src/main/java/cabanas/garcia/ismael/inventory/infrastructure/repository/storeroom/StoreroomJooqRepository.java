@@ -21,6 +21,11 @@ public class StoreroomJooqRepository implements StoreroomRepository {
     }
 
     @Override
+    public void create(Storeroom storeroom) {
+
+    }
+
+    @Override
     public void save(Storeroom storeroom) {
         dslContext.insertInto(STORE_ROOM)
                 .columns(STORE_ROOM.SR_ID, STORE_ROOM.SR_NAME)

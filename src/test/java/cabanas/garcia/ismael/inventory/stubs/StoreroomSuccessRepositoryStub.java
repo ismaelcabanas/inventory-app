@@ -42,6 +42,10 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
         assertThat(argCaptorProductStock.getValue().storeroom()).isEqualTo(theStoreroom);
     }
 
+    public void verifyStoreroomIsSaved(Storeroom theStoreroom) {
+        verify(storeroomRepositoryMock, times(1)).create(theStoreroom);
+    }
+
     @Override
     public Optional<Storeroom> findById(StoreroomId storeroomId) {
         return Optional.of(storeroom);
@@ -62,5 +66,8 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
         storeroomRepositoryMock.saveProductStock(productStock);
     }
 
-
+    @Override
+    public void create(Storeroom theStoreroom) {
+        storeroomRepositoryMock.create(theStoreroom);
+    }
 }
