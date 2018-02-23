@@ -4,13 +4,11 @@ import cabanas.garcia.ismael.inventory.domain.common.AgreggateRoot;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.ProductNotFoundException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class Storeroom extends AgreggateRoot<StoreroomId> {
 
-    @SuppressWarnings("PMD")
     private final String name;
     private final List<ProductStock> productStocks;
 
@@ -50,6 +48,10 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
 
     public static Builder builder(String name) {
         return new Builder(name);
+    }
+
+    public String name() {
+        return this.name;
     }
 
     public static final class Builder {

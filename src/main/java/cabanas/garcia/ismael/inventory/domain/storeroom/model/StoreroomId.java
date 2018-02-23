@@ -28,7 +28,7 @@ public final class StoreroomId extends ValueObject<StoreroomId> {
                 .isEquals();
     }
 
-    public String id() {
+    public String value() {
         return id;
     }
 }

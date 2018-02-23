@@ -6,6 +6,6 @@ import java.text.MessageFormat;
 
 public class StoreroomNotFoundException extends RuntimeException {
     public StoreroomNotFoundException(StoreroomId storeroomId) {
-        super(MessageFormat.format("The Storeroom %s not found.", storeroomId.id()));
+        super(MessageFormat.format("The Storeroom %s not found.", storeroomId.value()));
     }
 }
