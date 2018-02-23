@@ -31,11 +31,11 @@ public class ProductRegisterDomainEventSubscriberShould {
 
         subscriber.handle(productRegisteredEvent);
 
-        verifySaveProductInStoreroomWithStockZero(storeroom.id(), productId);
+        verifyProductInStoreroomWithStockZeroWasSaved(storeroom, productId);
     }
 
-    private void verifySaveProductInStoreroomWithStockZero(StoreroomId storeroomId, String productId) {
-        storeroomSuccessRepositoryStub.verifySaveProductInStoreroomWithStock(storeroomId,
+    private void verifyProductInStoreroomWithStockZeroWasSaved(Storeroom storeroom, String productId) {
+        storeroomSuccessRepositoryStub.verifyProductStockWasSavedInStoreroom(storeroom,
                 ProductId.builder(productId).build(), Stock.NONE);
     }
 }

@@ -8,7 +8,7 @@ public final class StoreroomUtil {
         Storeroom storeroom = Storeroom.builder("Test Storeroom")
                 .withId(storeroomId)
                 .build();
-        storeroom.load(new ProductStock(productId, stock));
+        storeroom.load(productId, stock);
         return storeroom;
     }
 }

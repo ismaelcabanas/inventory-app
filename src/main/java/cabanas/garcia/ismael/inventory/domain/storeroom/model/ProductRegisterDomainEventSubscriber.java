@@ -25,9 +25,8 @@ public class ProductRegisterDomainEventSubscriber implements DomainEventSubscrib
 
         storerooms.forEach(storeroom -> {
             ProductRegisteredEvent event = (ProductRegisteredEvent) domainEvent;
-            ProductStock productStock = new ProductStock(ProductId.builder(event.getProductId()).build());
-            storeroom.load(productStock);
-            storeroomRepository.save(storeroom);
+            ProductStock productStock = new ProductStock(storeroom, ProductId.builder(event.getProductId()).build());
+            storeroomRepository.saveProductStock(productStock);
         });
     }
 }

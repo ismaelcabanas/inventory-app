@@ -27,8 +27,8 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         setId(builder.theStoreroomId);
     }
 
-    void load(ProductStock... theProductStocks) {
-        this.productStocks.addAll(Arrays.asList(theProductStocks));
+    void load(ProductId productId, Stock stock) {
+        this.productStocks.add(new ProductStock(this, productId, stock));
     }
 
     public void fill(ProductId productId, Stock stock) {

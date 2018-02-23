@@ -7,16 +7,20 @@ import java.util.Objects;
 public class ProductStock extends Entity<ProductStockId> {
     private final ProductId productId;
     private Stock stock;
+    private final Storeroom storeroom;
 
-    public ProductStock(ProductId productId, Stock stock) {
+    public ProductStock(Storeroom storeroom, ProductId productId, Stock stock) {
         Objects.requireNonNull(productId, "ProductId must not be null");
         Objects.requireNonNull(stock, "Stock must not be null");
+        Objects.requireNonNull(storeroom, "A product must be associated to non null storeroom");
         setId(new ProductStockId());
+        this.storeroom = storeroom;
         this.productId = productId;
         this.stock = stock;
     }
 
-    public ProductStock(ProductId productId) {
+    public ProductStock(Storeroom storeroom, ProductId productId) {
+        this.storeroom = storeroom;
         this.productId = productId;
         this.stock = Stock.NONE;
     }
@@ -37,4 +41,7 @@ public class ProductStock extends Entity<ProductStockId> {
         return this.stock;
     }
 
+    public Storeroom storeroom() {
+        return storeroom;
+    }
 }
