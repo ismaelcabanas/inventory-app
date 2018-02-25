@@ -20,4 +20,3 @@ La aplicación trata de simular el consumo y reposición de productos de una des
 
 * Java
 * Spring Boot
-* Test
