@@ -37,11 +37,11 @@ public class StoreroomJooqRepositoryShould {
 
     @Transactional
     @Test
-    public void save_storeroom() {
+    public void create_storeroom() {
         StoreroomRepository storeroomRepository = new StoreroomJooqRepository(dslContext);
         Storeroom storeroom = new Storeroom(SOME_NAME);
 
-        storeroomRepository.save(storeroom);
+        storeroomRepository.create(storeroom);
 
         assertThat(DataBaseTestUtils.numberOfInsertedInStoreroomTable(jdbcTemplate)).isEqualTo(1);
     }
