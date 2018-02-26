@@ -7,6 +7,7 @@ import static org.springframework.test.jdbc.JdbcTestUtils.countRowsInTable;
 public final class DataBaseTestUtils {
     private static final String PRODUCT_TABLE_NAME = "PRODUCT";
     private static final String STORE_ROOM_TABLE_NAME = "STORE_ROOM";
+    private static final String PRODUCT_STOCK_TABLE_NAME = "PRODUCT_STOCK";
 
     private DataBaseTestUtils() {
     }
@@ -19,4 +20,7 @@ public final class DataBaseTestUtils {
         return countRowsInTable(jdbcTemplate, STORE_ROOM_TABLE_NAME);
     }
 
+    public static int numberOfInsertedProductStockInStoreroomTable(JdbcTemplate jdbcTemplate) {
+        return countRowsInTable(jdbcTemplate, PRODUCT_STOCK_TABLE_NAME);
+    }
 }

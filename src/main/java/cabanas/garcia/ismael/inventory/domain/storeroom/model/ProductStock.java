@@ -25,7 +25,7 @@ public class ProductStock extends Entity<ProductStockId> {
         this.stock = Stock.NONE;
     }
 
-    public ProductId product() {
+    public ProductId productId() {
         return this.productId;
     }
 

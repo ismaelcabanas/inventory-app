@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import static cabanas.garcia.ismael.inventory.infrastructure.repository.jooq.autogen.tables.StoreRoom.STORE_ROOM;
+import static cabanas.garcia.ismael.inventory.infrastructure.repository.jooq.autogen.tables.ProductStock.PRODUCT_STOCK;
 
 public class StoreroomJooqRepository implements StoreroomRepository {
     private final DSLContext dslContext;
@@ -35,7 +36,10 @@ public class StoreroomJooqRepository implements StoreroomRepository {
 
     @Override
     public void saveProductStock(ProductStock productStock) {
-
+        dslContext.insertInto(PRODUCT_STOCK)
+                .columns(PRODUCT_STOCK.PS_ID, PRODUCT_STOCK.PS_PRODUCT_ID, PRODUCT_STOCK.PS_STOCK)
+                .values(productStock.id().value(), productStock.productId().value(), productStock.stock().value())
+                .execute();
     }
 
     @Override
