@@ -2,6 +2,9 @@ package cabanas.garcia.ismael.inventory.infrastructure.repository.storeroom;
 
 import cabanas.garcia.ismael.inventory.Application;
 import cabanas.garcia.ismael.inventory.IntegrationTest;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.Stock;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
@@ -41,5 +44,18 @@ public class StoreroomJooqRepositoryShould {
         storeroomRepository.save(storeroom);
 
         assertThat(DataBaseTestUtils.numberOfInsertedInStoreroomTable(jdbcTemplate)).isEqualTo(1);
+    }
+
+    @Transactional
+    @Test
+    public void save_product_stock_in_storeroom() {
+        StoreroomRepository storeroomRepository = new StoreroomJooqRepository(dslContext);
+        Storeroom storeroom = new Storeroom(SOME_NAME);
+        storeroomRepository.save(storeroom);
+        ProductStock productStock = new ProductStock(storeroom, new ProductId(), new Stock(20));
+
+        storeroomRepository.saveProductStock(productStock);
+
+        assertThat(DataBaseTestUtils.numberOfInsertedProductStockInStoreroomTable(jdbcTemplate)).isEqualTo(1);
     }
 }

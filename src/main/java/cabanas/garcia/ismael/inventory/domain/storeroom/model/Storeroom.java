@@ -41,7 +41,7 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
 
     public Stock stockOf(ProductId productId) {
         return productStocks.stream()
-                .filter(ps -> ps.product().equals(productId))
+                .filter(ps -> ps.productId().equals(productId))
                 .map(ProductStock::stock)
                 .findFirst().orElseThrow(() -> new ProductNotFoundException(productId));
     }
@@ -75,7 +75,7 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
 
     private ProductStock findProductStock(ProductId productId) {
         return productStocks.stream()
-                .filter(ps -> ps.product().equals(productId))
+                .filter(ps -> ps.productId().equals(productId))
                 .findFirst()
                 .orElseThrow(() -> new ProductNotFoundException(productId));
     }

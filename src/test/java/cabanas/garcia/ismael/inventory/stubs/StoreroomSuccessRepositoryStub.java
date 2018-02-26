@@ -37,7 +37,7 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
         ArgumentCaptor<ProductStock> argCaptorProductStock = ArgumentCaptor.forClass(ProductStock.class);
         verify(storeroomRepositoryMock, times(1)).saveProductStock(argCaptorProductStock.capture());
 
-        assertThat(argCaptorProductStock.getValue().product()).isEqualTo(productId);
+        assertThat(argCaptorProductStock.getValue().productId()).isEqualTo(productId);
         assertThat(argCaptorProductStock.getValue().stock()).isEqualTo(stock);
         assertThat(argCaptorProductStock.getValue().storeroom()).isEqualTo(theStoreroom);
     }

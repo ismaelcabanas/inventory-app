@@ -8,28 +8,28 @@ import java.util.UUID;
 
 public class ProductStockId extends ValueObject<ProductStockId> {
 
-    private String id;
+    private String value;
 
     public ProductStockId() {
-        id = UUID.randomUUID().toString();
+        value = UUID.randomUUID().toString();
     }
 
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
-                .append(id)
+                .append(value)
                 .toHashCode();
     }
 
     @Override
     protected boolean equalsCore(ProductStockId other) {
         return new EqualsBuilder()
-                .append(id, other.id)
+                .append(value, other.value)
                 .isEquals();
     }
 
-    public String id() {
-        return id;
+    public String value() {
+        return value;
     }
 
 
