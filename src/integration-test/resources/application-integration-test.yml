@@ -10,6 +10,9 @@ logging:
       springframework:
         transaction: DEBUG
         jdbc: TRACE
+    cabanas:
+      garcia:
+        ismael: DEBUG
 
 flyway:
     locations: classpath:db/migration

@@ -9,6 +9,7 @@ import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
 import org.jooq.DSLContext;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -18,6 +19,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -34,11 +37,16 @@ public class StoreroomJooqRepositoryShould {
     @Autowired
     private DSLContext dslContext;
 
+    private StoreroomRepository storeroomRepository;
+
+    @Before
+    public void setUp() {
+        storeroomRepository = new StoreroomJooqRepository(dslContext);
+    }
 
     @Transactional
     @Test
     public void create_storeroom() {
-        StoreroomRepository storeroomRepository = new StoreroomJooqRepository(dslContext);
         Storeroom storeroom = new Storeroom(SOME_NAME);
 
         storeroomRepository.create(storeroom);
@@ -49,7 +57,6 @@ public class StoreroomJooqRepositoryShould {
     @Transactional
     @Test
     public void save_product_stock_in_storeroom() {
-        StoreroomRepository storeroomRepository = new StoreroomJooqRepository(dslContext);
         Storeroom storeroom = new Storeroom(SOME_NAME);
         storeroomRepository.save(storeroom);
         ProductStock productStock = new ProductStock(storeroom, new ProductId(), new Stock(20));
@@ -57,5 +64,20 @@ public class StoreroomJooqRepositoryShould {
         storeroomRepository.saveProductStock(productStock);
 
         assertThat(DataBaseTestUtils.numberOfInsertedProductStockInStoreroomTable(jdbcTemplate)).isEqualTo(1);
+    }
+
+    @Transactional
+    @Test
+    public void find_storeroom_by_id_with_products() {
+        Storeroom storeroom = new Storeroom(SOME_NAME);
+        storeroomRepository.create(storeroom);
+        ProductStock productStock = new ProductStock(storeroom, new ProductId(), new Stock(20));
+        storeroomRepository.saveProductStock(productStock);
+
+        Optional<Storeroom> storeroomActual = storeroomRepository.findById(storeroom.id());
+
+        assertThat(storeroomActual.isPresent()).isTrue();
+        assertThat(storeroomActual.get().name()).isEqualTo(SOME_NAME);
+        assertThat(storeroomActual.get().stockOf(productStock.productId())).isEqualTo(productStock.stock());
     }
 }

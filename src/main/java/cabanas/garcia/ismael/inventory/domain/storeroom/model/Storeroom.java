@@ -21,7 +21,7 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
 
     private Storeroom(Builder builder) {
         this.name = builder.theName;
-        this.productStocks = new ArrayList<>();
+        this.productStocks = builder.theProductStocks;
         setId(builder.theStoreroomId);
     }
 
@@ -58,6 +58,7 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
 
         private StoreroomId theStoreroomId;
         public final String theName;
+        private List<ProductStock> theProductStocks = new ArrayList<>();
 
         public Builder(String name) {
             this.theName = name;
@@ -69,6 +70,11 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
 
         public Builder withId(StoreroomId storeroomId) {
             this.theStoreroomId = storeroomId;
+            return this;
+        }
+
+        public Builder withProductStocks(List<ProductStock> productStocks) {
+            this.theProductStocks = productStocks;
             return this;
         }
     }

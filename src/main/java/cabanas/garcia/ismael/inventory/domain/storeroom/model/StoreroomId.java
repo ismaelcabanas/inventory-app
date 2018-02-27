@@ -14,6 +14,10 @@ public final class StoreroomId extends ValueObject<StoreroomId> {
         this.id = UUID.randomUUID().toString();
     }
 
+    public StoreroomId(String id) {
+        this.id = id;
+    }
+
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
