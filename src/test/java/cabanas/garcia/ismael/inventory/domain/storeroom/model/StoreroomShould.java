@@ -57,13 +57,6 @@ public class StoreroomShould {
     }
 
     @Test public void
-    consume_a_stock_of_given_product() {
-        storeroom.consume(SOME_PRODUCT_ID, STOCK_OF_FIVE);
-
-        assertThat(storeroom.stockOf(SOME_PRODUCT_ID)).isEqualTo(new Stock(15));
-    }
-
-    @Test public void
     throw_exception_if_name_not_present_when_create_instance() {
         exception.expect(NullPointerException.class);
 
