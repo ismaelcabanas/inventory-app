@@ -1,7 +1,8 @@
-package cabanas.garcia.ismael.inventory.domain.storeroom.model;
+package cabanas.garcia.ismael.inventory.domain.productStock;
 
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.InvalidStockException;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.NegativeStockException;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.InvalidStockException;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NegativeStockException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -9,7 +10,6 @@ import org.junit.rules.ExpectedException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StockShould {
-
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 

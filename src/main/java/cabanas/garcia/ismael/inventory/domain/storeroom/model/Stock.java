@@ -2,7 +2,6 @@ package cabanas.garcia.ismael.inventory.domain.storeroom.model;
 
 import cabanas.garcia.ismael.inventory.domain.common.ValueObject;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.InvalidStockException;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.NegativeStockException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -17,6 +16,7 @@ public class Stock extends ValueObject<Stock> {
         }
         this.amount = amount;
     }
+
 
     public int value() {
         return amount;
@@ -41,17 +41,6 @@ public class Stock extends ValueObject<Stock> {
         return "Stock{"
                 + "amount=" + amount
                 + '}';
-    }
-
-    public Stock increase(Stock stock) {
-        return new Stock(amount + stock.value());
-    }
-
-    public Stock decrease(Stock stock) {
-        if (amount - stock.value() < 0) {
-            throw new NegativeStockException();
-        }
-        return new Stock(amount - stock.value());
     }
 
 }
