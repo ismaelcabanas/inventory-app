@@ -35,4 +35,8 @@ public class ProductStock extends AgreggateRoot<ProductStockId> {
     public void consume(Stock theStock) {
         this.stock = this.stock.decrease(theStock);
     }
+
+    public void fill(Stock theStock) {
+        this.stock = this.stock.increase(theStock);
+    }
 }
