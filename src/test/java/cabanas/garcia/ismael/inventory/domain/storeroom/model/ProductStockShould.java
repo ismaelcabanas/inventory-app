@@ -4,8 +4,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class ProductStockShould {
 
     private static final Stock ACTUAL_STOCK = new Stock(5);
