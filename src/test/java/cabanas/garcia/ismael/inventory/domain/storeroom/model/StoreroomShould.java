@@ -13,7 +13,6 @@ public class StoreroomShould {
     private static final ProductId SOME_PRODUCT_ID = new ProductId();
     private static final ProductId SOME_WRONG_PRODUCT_ID = new ProductId();
     private static final String STOREROOM_NAME = "TEST Storeroom";
-    private static final Stock STOCK_OF_FIVE = new Stock(5);
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
@@ -24,21 +23,6 @@ public class StoreroomShould {
     setUp() {
         storeroom = new Storeroom(STOREROOM_NAME);
         storeroom.load(SOME_PRODUCT_ID, new Stock(20));
-    }
-
-    @Test public void
-    fill_with_new_amount_of_given_product() {
-
-        storeroom.fill(SOME_PRODUCT_ID, STOCK_OF_FIVE);
-
-        assertThat(storeroom.stockOf(SOME_PRODUCT_ID)).isEqualTo(new Stock(25));
-    }
-
-    @Test public void
-    fill_throw_exception_when_product_not_in_storeroom() {
-        exception.expect(ProductNotFoundException.class);
-
-        storeroom.fill(SOME_WRONG_PRODUCT_ID, STOCK_OF_FIVE);
     }
 
     @Test public void

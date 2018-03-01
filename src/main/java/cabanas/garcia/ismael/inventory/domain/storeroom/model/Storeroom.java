@@ -28,12 +28,6 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
     void load(ProductId productId, Stock stock) {
         this.productStocks.add(new ProductStock(this, productId, stock));
     }
-
-    public void fill(ProductId productId, Stock stock) {
-        ProductStock productStock = findProductStock(productId);
-        productStock.addStock(stock);
-    }
-
     public Stock stockOf(ProductId productId) {
         return productStocks.stream()
                 .filter(ps -> ps.productId().equals(productId))
@@ -72,12 +66,5 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
             this.theProductStocks = productStocks;
             return this;
         }
-    }
-
-    private ProductStock findProductStock(ProductId productId) {
-        return productStocks.stream()
-                .filter(ps -> ps.productId().equals(productId))
-                .findFirst()
-                .orElseThrow(() -> new ProductNotFoundException(productId));
     }
 }
