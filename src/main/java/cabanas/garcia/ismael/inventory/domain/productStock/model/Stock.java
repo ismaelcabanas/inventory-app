@@ -28,6 +28,10 @@ public class Stock extends ValueObject<Stock> {
         return new Stock(amount - stock.value());
     }
 
+    public Stock increase(Stock stock) {
+        return new Stock(amount + stock.value());
+    }
+
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
