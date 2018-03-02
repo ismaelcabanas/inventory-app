@@ -63,7 +63,7 @@ public class StoreroomJooqRepositoryShould {
 
         storeroomRepository.saveProductStock(productStock);
 
-        assertThat(DataBaseTestUtils.numberOfInsertedProductStockInStoreroomTable(jdbcTemplate)).isEqualTo(1);
+        assertThat(DataBaseTestUtils.numberOfInsertedProductStockInTable(jdbcTemplate)).isEqualTo(1);
     }
 
     @Transactional
