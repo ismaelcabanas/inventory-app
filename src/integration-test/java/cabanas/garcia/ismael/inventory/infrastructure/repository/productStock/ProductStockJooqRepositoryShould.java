@@ -1,0 +1,51 @@
+package cabanas.garcia.ismael.inventory.infrastructure.repository.productStock;
+
+import cabanas.garcia.ismael.inventory.Application;
+import cabanas.garcia.ismael.inventory.IntegrationTest;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
+import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductStockRepository;
+import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
+import org.jooq.DSLContext;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Application.class)
+@Category(IntegrationTest.class)
+@ActiveProfiles("integration-test")
+public class ProductStockJooqRepositoryShould {
+    private static final StoreroomId SOME_STOREROOM_ID = new StoreroomId();
+    private static final ProductId SOME_PRODUCT_ID = new ProductId();
+    private static final int SOME_AMOUNT = 5;
+    private static final Stock SOME_STOCK = new Stock(SOME_AMOUNT);
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private DSLContext dslContext;
+
+
+    @Transactional
+    @Test public void
+    save_product() {
+        ProductStockRepository productRepository = new ProductStockJooqRepository(dslContext);
+        ProductStock product = new ProductStock(SOME_STOREROOM_ID, SOME_PRODUCT_ID, SOME_STOCK);
+
+        productRepository.save(product);
+
+        assertThat(DataBaseTestUtils.numberOfInsertedProductStockInTable(jdbcTemplate)).isEqualTo(1);
+    }
+}

@@ -20,7 +20,8 @@ public final class DataBaseTestUtils {
         return countRowsInTable(jdbcTemplate, STORE_ROOM_TABLE_NAME);
     }
 
-    public static int numberOfInsertedProductStockInStoreroomTable(JdbcTemplate jdbcTemplate) {
+    public static int numberOfInsertedProductStockInTable(JdbcTemplate jdbcTemplate) {
         return countRowsInTable(jdbcTemplate, PRODUCT_STOCK_TABLE_NAME);
     }
+
 }
