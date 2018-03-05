@@ -20,6 +20,13 @@ public class ProductStock extends AgreggateRoot<ProductStockId> {
         this.stock = stock;
     }
 
+    private ProductStock(Builder builder) {
+        this.setId(builder.productStockId);
+        this.storeroomId = builder.storeroomId;
+        this.productId = builder.productId;
+        this.stock = builder.stock;
+    }
+
     public Stock stock() {
         return stock;
     }
@@ -38,5 +45,40 @@ public class ProductStock extends AgreggateRoot<ProductStockId> {
 
     public void fill(Stock theStock) {
         this.stock = this.stock.increase(theStock);
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private ProductStockId productStockId;
+        private StoreroomId storeroomId;
+        private ProductId productId;
+        private Stock stock;
+
+        public Builder withId(ProductStockId psId) {
+            this.productStockId = psId;
+            return this;
+        }
+
+        public Builder withStoreroomId(StoreroomId psStoreroomId) {
+            this.storeroomId = psStoreroomId;
+            return this;
+        }
+
+        public Builder withProductId(ProductId psProductId) {
+            this.productId = psProductId;
+            return this;
+        }
+
+        public Builder withStock(Stock psStock) {
+            this.stock = psStock;
+            return this;
+        }
+
+        public ProductStock build() {
+            return new ProductStock(this);
+        }
     }
 }

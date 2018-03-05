@@ -8,6 +8,8 @@ import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductSto
 import org.assertj.core.api.Assertions;
 import org.mockito.ArgumentCaptor;
 
+import java.util.Optional;
+
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
@@ -26,8 +28,8 @@ public class ProductStockSuccessRepositoryStub implements ProductStockRepository
     }
 
     @Override
-    public ProductStock findBy(StoreroomId storeroomId, ProductId productId) {
-        return productStock;
+    public Optional<ProductStock> findBy(StoreroomId storeroomId, ProductId productId) {
+        return Optional.of(productStock);
     }
 
     public void verifyProductWithStockIsSavedInStoreroom(Stock stock) {

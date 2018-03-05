@@ -4,8 +4,10 @@ import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
 
+import java.util.Optional;
+
 public interface ProductStockRepository {
     void save(ProductStock productStock);
 
-    ProductStock findBy(StoreroomId storeroomId, ProductId productId);
+    Optional<ProductStock> findBy(StoreroomId storeroomId, ProductId productId);
 }

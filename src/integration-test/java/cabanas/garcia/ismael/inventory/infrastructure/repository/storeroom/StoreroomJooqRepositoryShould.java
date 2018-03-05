@@ -8,8 +8,6 @@ import cabanas.garcia.ismael.inventory.domain.storeroom.model.Stock;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
-import org.jooq.DSLContext;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -35,14 +33,7 @@ public class StoreroomJooqRepositoryShould {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    private DSLContext dslContext;
-
     private StoreroomRepository storeroomRepository;
-
-    @Before
-    public void setUp() {
-        storeroomRepository = new StoreroomJooqRepository(dslContext);
-    }
 
     @Transactional
     @Test

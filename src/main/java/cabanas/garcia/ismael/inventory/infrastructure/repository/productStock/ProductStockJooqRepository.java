@@ -7,16 +7,20 @@ import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductSto
 import org.jooq.DSLContext;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import static cabanas.garcia.ismael.inventory.infrastructure.repository.jooq.autogen.Tables.PRODUCT_STOCK;
 
 public class ProductStockJooqRepository implements ProductStockRepository {
     private final DSLContext dslContext;
+    private final ProductStockRecordMapper productStockRecordMapper;
 
-    public ProductStockJooqRepository(DSLContext dslContext) {
+    public ProductStockJooqRepository(DSLContext dslContext, ProductStockRecordMapper productStockRecordMapper) {
         Objects.requireNonNull(dslContext, "DSLContext is mandatory");
+        Objects.requireNonNull(productStockRecordMapper, "ProductStockRecordMapper is mandatory");
 
         this.dslContext = dslContext;
+        this.productStockRecordMapper = productStockRecordMapper;
     }
 
     @Override
@@ -34,7 +38,12 @@ public class ProductStockJooqRepository implements ProductStockRepository {
     }
 
     @Override
-    public ProductStock findBy(StoreroomId storeroomId, ProductId productId) {
-        return null;
+    public Optional<ProductStock> findBy(StoreroomId storeroomId, ProductId productId) {
+        ProductStock productStock = dslContext.selectFrom(PRODUCT_STOCK)
+            .where(PRODUCT_STOCK.PS_STOREROOM_ID.eq(storeroomId.value()))
+            .and(PRODUCT_STOCK.PS_PRODUCT_ID.eq(productId.value()))
+            .fetchOne(productStockRecordMapper);
+
+        return Optional.ofNullable(productStock);
     }
 }

@@ -13,6 +13,10 @@ public class ProductStockId extends ValueObject<ProductStockId> {
         value = UUID.randomUUID().toString();
     }
 
+    private ProductStockId(Builder builder) {
+        this.value = builder.productStockId;
+    }
+
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
@@ -29,5 +33,22 @@ public class ProductStockId extends ValueObject<ProductStockId> {
 
     public String value() {
         return value;
+    }
+
+    public static Builder builder(String psId) {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private String productStockId;
+
+        public Builder withId(String psId) {
+            this.productStockId = psId;
+            return this;
+        }
+
+        public ProductStockId build() {
+            return new ProductStockId(this);
+        }
     }
 }

@@ -8,7 +8,6 @@ import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductStockRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
-import org.jooq.DSLContext;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -18,6 +17,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,17 +36,29 @@ public class ProductStockJooqRepositoryShould {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    private DSLContext dslContext;
-
+    private ProductStockRepository productStockRepository;
 
     @Transactional
     @Test public void
     save_product() {
-        ProductStockRepository productRepository = new ProductStockJooqRepository(dslContext);
         ProductStock product = new ProductStock(SOME_STOREROOM_ID, SOME_PRODUCT_ID, SOME_STOCK);
 
-        productRepository.save(product);
+        productStockRepository.save(product);
 
         assertThat(DataBaseTestUtils.numberOfInsertedProductStockInTable(jdbcTemplate)).isEqualTo(1);
+    }
+
+    @Transactional
+    @Test
+    public void find_product_stock_of_storeroom() {
+        ProductStock productStock = new ProductStock(SOME_STOREROOM_ID, SOME_PRODUCT_ID, SOME_STOCK);
+        productStockRepository.save(productStock);
+
+        Optional<ProductStock> productStockActual = productStockRepository.findBy(SOME_STOREROOM_ID, SOME_PRODUCT_ID);
+
+        assertThat(productStockActual.isPresent()).isTrue();
+        assertThat(productStockActual.get().product()).isEqualTo(SOME_PRODUCT_ID);
+        assertThat(productStockActual.get().storeroom()).isEqualTo(SOME_STOREROOM_ID);
+        assertThat(productStockActual.get().stock()).isEqualTo(SOME_STOCK);
     }
 }
