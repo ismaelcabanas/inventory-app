@@ -13,6 +13,10 @@ public class StoreroomId extends ValueObject<StoreroomId> {
         this.id = UUID.randomUUID().toString();
     }
 
+    private StoreroomId(Builder builder) {
+        this.id = builder.id;
+    }
+
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
@@ -29,5 +33,21 @@ public class StoreroomId extends ValueObject<StoreroomId> {
 
     public String value() {
         return id;
+    }
+
+    public static Builder builder(String psStoreroomId) {
+        return new Builder(psStoreroomId);
+    }
+
+    public static class Builder {
+        private final String id;
+
+        public Builder(String psStoreroomId) {
+            this.id = psStoreroomId;
+        }
+
+        public StoreroomId build() {
+            return new StoreroomId(this);
+        }
     }
 }

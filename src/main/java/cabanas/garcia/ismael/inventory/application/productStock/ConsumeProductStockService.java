@@ -6,6 +6,8 @@ import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductStockRepository;
 
+import java.util.Optional;
+
 public class ConsumeProductStockService {
     private final ProductStockRepository productStockRepository;
 
@@ -14,8 +16,11 @@ public class ConsumeProductStockService {
     }
 
     public void consume(StoreroomId storeroomId, ProductId productId, int amount) {
-        ProductStock productStock = productStockRepository.findBy(storeroomId, productId);
-        productStock.consume(new Stock(amount));
-        productStockRepository.save(productStock);
+        Optional<ProductStock> productStock = productStockRepository.findBy(storeroomId, productId);
+        productStock.ifPresent(ps -> {
+            ps.consume(new Stock(amount));
+            productStockRepository.save(ps);
+        });
+
     }
 }

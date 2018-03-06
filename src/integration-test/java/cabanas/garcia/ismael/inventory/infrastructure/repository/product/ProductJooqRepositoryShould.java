@@ -5,7 +5,6 @@ import cabanas.garcia.ismael.inventory.IntegrationTest;
 import cabanas.garcia.ismael.inventory.domain.product.model.Product;
 import cabanas.garcia.ismael.inventory.domain.product.repository.ProductRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
-import org.jooq.DSLContext;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -30,13 +29,11 @@ public class ProductJooqRepositoryShould {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    private DSLContext dslContext;
-
+    private ProductRepository productRepository;
 
     @Transactional
     @Test public void
     save_product() {
-        ProductRepository productRepository = new ProductJooqRepository(dslContext);
         Product product = new Product(SOME_PRODUCT_NAME);
 
         productRepository.save(product);
