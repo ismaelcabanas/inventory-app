@@ -43,6 +43,10 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         return this.name;
     }
 
+    public List<ProductStock> products() {
+        return productStocks;
+    }
+
     public static final class Builder {
 
         private StoreroomId theStoreroomId;
