@@ -5,10 +5,11 @@ import cucumber.api.java8.En;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SuppressWarnings("PMD.UnusedLocalVariable")
 public class SignUpStoreroomSteps implements En {
 
+    @SuppressWarnings("PMD.SingularField")
     private String storeroomName;
+    @SuppressWarnings("PMD.SingularField")
     private Storeroom storeroom;
 
     public SignUpStoreroomSteps() {
