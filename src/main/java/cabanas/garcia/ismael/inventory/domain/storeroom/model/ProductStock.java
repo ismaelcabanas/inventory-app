@@ -36,4 +36,12 @@ public class ProductStock extends Entity<ProductStockId> {
     public Storeroom storeroom() {
         return storeroom;
     }
+
+    @Override
+    public String toString() {
+        return "ProductStock{"
+                + "productId=" + productId
+                + ", stock=" + stock
+                + '}';
+    }
 }

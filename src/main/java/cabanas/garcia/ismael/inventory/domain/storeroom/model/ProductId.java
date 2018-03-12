@@ -31,6 +31,13 @@ public class ProductId extends ValueObject<ProductId> {
                 .isEquals();
     }
 
+    @Override
+    public String toString() {
+        return "ProductId{"
+                + "value='" + value + '\''
+                + '}';
+    }
+
     public static Builder builder(String productId) {
         return new Builder(productId);
     }

@@ -32,6 +32,13 @@ public final class StoreroomId extends ValueObject<StoreroomId> {
                 .isEquals();
     }
 
+    @Override
+    public String toString() {
+        return "StoreroomId{"
+                + "id='" + id + '\''
+                + '}';
+    }
+
     public String value() {
         return id;
     }
