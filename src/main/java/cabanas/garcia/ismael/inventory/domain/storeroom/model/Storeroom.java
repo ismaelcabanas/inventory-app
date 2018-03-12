@@ -47,6 +47,15 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         return productStocks;
     }
 
+    @Override
+    public String toString() {
+        return "Storeroom{"
+                + "id='" + id()
+                + ", name='" + name + '\''
+                + ", productStocks=" + productStocks
+                + '}';
+    }
+
     public static final class Builder {
 
         private StoreroomId theStoreroomId;

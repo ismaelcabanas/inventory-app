@@ -8,10 +8,12 @@ import java.util.UUID;
 public class ProductRegisteredEvent implements DomainEvent {
     private final String productId;
     private final UUID id;
+    private LocalDateTime ocurredOn;
 
     public ProductRegisteredEvent(String productId) {
         this.productId = productId;
         this.id = UUID.randomUUID();
+        this.ocurredOn = LocalDateTime.now();
     }
 
     @Override
@@ -21,10 +23,19 @@ public class ProductRegisteredEvent implements DomainEvent {
 
     @Override
     public LocalDateTime ocurredOn() {
-        return LocalDateTime.now();
+        return ocurredOn;
     }
 
     public String getProductId() {
         return productId;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductRegisteredEvent{"
+                + "productId='" + productId + '\''
+                + ", id=" + id
+                + ", ocurredOn=" + ocurredOn
+                + '}';
     }
 }
