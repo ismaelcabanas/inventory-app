@@ -51,6 +51,7 @@ public class SignUpProductSteps implements En {
             theStoreroom.ifPresent(str -> {
                 assertThat(str.stockOf(ProductId.builder(product.id().value()).build())).isEqualTo(new Stock(stock));
             });
+            DomainEventPublisher.getInstance().unsubscribe(subscriber);
         });
 
 
