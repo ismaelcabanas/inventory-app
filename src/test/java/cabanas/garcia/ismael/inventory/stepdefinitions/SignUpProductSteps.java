@@ -30,7 +30,7 @@ public class SignUpProductSteps implements En {
         Given("^(.+) wants to become a new product in storeroom$", (String name) -> {
             this.productName = name;
         });
-        And("^a storeroom called (.+)$", (String storeroomName) -> {
+        Given("^a storeroom called (.+)$", (String storeroomName) -> {
             DomainEventPublisher.getInstance().subscribe(subscriber);
             storeroom = new Storeroom(storeroomName);
             fakeStoreroomRepository.create(storeroom);

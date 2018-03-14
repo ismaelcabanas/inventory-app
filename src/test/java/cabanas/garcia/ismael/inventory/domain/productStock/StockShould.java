@@ -2,7 +2,7 @@ package cabanas.garcia.ismael.inventory.domain.productStock;
 
 import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.InvalidStockException;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NegativeStockException;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NotEnoughStockException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -41,7 +41,7 @@ public class StockShould {
     @Test public void
     throw_exception_if_stock_is_negative_when_decrease() {
         Stock stockOfFive = new Stock(5);
-        expectedException.expect(NegativeStockException.class);
+        expectedException.expect(NotEnoughStockException.class);
 
         Stock stock = stockOfFive.decrease(new Stock(10));
 

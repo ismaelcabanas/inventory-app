@@ -2,7 +2,7 @@ package cabanas.garcia.ismael.inventory.domain.productStock.model;
 
 import cabanas.garcia.ismael.inventory.domain.common.ValueObject;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.InvalidStockException;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NegativeStockException;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NotEnoughStockException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -23,7 +23,7 @@ public class Stock extends ValueObject<Stock> {
 
     public Stock decrease(Stock stock) {
         if (amount - stock.value() < 0) {
-            throw new NegativeStockException();
+            throw new NotEnoughStockException();
         }
         return new Stock(amount - stock.value());
     }
