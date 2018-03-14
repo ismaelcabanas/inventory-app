@@ -5,7 +5,6 @@ import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NotEnoughStockException;
-import cucumber.api.PendingException;
 import cucumber.api.java8.En;
 
 import static org.assertj.core.api.Assertions.assertThat;
