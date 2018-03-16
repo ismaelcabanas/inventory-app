@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.common;
+package cabanas.garcia.ismael.inventory.domain.shared;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

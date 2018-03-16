@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.common;
+package cabanas.garcia.ismael.inventory.domain.shared;
 
 public interface DomainEventSubscriber {
     boolean isSubscribedTo(DomainEvent domainEvent);

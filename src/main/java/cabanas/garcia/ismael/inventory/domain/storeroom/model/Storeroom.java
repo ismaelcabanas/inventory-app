@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom.model;
 
-import cabanas.garcia.ismael.inventory.domain.common.AgreggateRoot;
+import cabanas.garcia.ismael.inventory.domain.shared.AgreggateRoot;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.ProductNotFoundException;
 
 import java.util.ArrayList;
