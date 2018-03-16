@@ -3,8 +3,8 @@ package cabanas.garcia.ismael.inventory.stepdefinitions;
 import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NotEnoughStockException;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
 import cucumber.api.java8.En;
 
 import static org.assertj.core.api.Assertions.assertThat;

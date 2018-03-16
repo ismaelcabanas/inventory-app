@@ -18,6 +18,10 @@ public final class StoreroomId extends ValueObject<StoreroomId> {
         this.id = id;
     }
 
+    private StoreroomId(Builder builder) {
+        this.id = builder.storeroomId;
+    }
+
     @Override
     protected int hashCodeCore() {
         return new HashCodeBuilder(17, 37)
@@ -41,5 +45,21 @@ public final class StoreroomId extends ValueObject<StoreroomId> {
 
     public String value() {
         return id;
+    }
+
+    public static Builder builder(String id) {
+        return new Builder(id);
+    }
+
+    public static class Builder {
+        private final String storeroomId;
+
+        public Builder(String id) {
+            this.storeroomId = id;
+        }
+
+        public StoreroomId build() {
+            return new StoreroomId(this);
+        }
     }
 }
