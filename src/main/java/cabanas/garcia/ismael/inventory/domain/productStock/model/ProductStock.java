@@ -1,6 +1,7 @@
 package cabanas.garcia.ismael.inventory.domain.productStock.model;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
+import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.shared.AgreggateRoot;
 
 import java.util.Objects;

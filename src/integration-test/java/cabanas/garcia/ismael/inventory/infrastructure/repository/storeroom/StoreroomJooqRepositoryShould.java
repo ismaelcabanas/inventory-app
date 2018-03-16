@@ -3,7 +3,7 @@ package cabanas.garcia.ismael.inventory.infrastructure.repository.storeroom;
 import cabanas.garcia.ismael.inventory.Application;
 import cabanas.garcia.ismael.inventory.IntegrationTest;
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
