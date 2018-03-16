@@ -7,12 +7,12 @@ import cabanas.garcia.ismael.inventory.domain.shared.Entity;
 
 import java.util.Objects;
 
-public class ProductStock extends Entity<ProductStockId> {
+public class ProductStockItem extends Entity<ProductStockId> {
     private final ProductId productId;
     private Stock stock;
     private final Storeroom storeroom;
 
-    public ProductStock(Storeroom storeroom, ProductId productId, Stock stock) {
+    public ProductStockItem(Storeroom storeroom, ProductId productId, Stock stock) {
         Objects.requireNonNull(productId, "ProductId must not be null");
         Objects.requireNonNull(stock, "Stock must not be null");
         Objects.requireNonNull(storeroom, "A product must be associated to non null storeroom");
@@ -22,7 +22,7 @@ public class ProductStock extends Entity<ProductStockId> {
         this.stock = stock;
     }
 
-    public ProductStock(Storeroom storeroom, ProductId productId) {
+    public ProductStockItem(Storeroom storeroom, ProductId productId) {
         this.storeroom = storeroom;
         this.productId = productId;
         this.stock = Stock.NONE;
@@ -42,7 +42,7 @@ public class ProductStock extends Entity<ProductStockId> {
 
     @Override
     public String toString() {
-        return "ProductStock{"
+        return "ProductStockItem{"
                 + "productId=" + productId
                 + ", stock=" + stock
                 + '}';

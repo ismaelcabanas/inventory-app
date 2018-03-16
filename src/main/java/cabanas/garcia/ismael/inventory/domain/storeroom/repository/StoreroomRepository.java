@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom.repository;
 
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStockItem;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface StoreroomRepository {
     void save(Storeroom storeroom);
 
-    void saveProductStock(ProductStock productStock);
+    void saveProductStock(ProductStockItem productStockItem);
 
     Optional<Storeroom> findById(StoreroomId storeroomId);
 

@@ -12,28 +12,28 @@ import java.util.Objects;
 public class Storeroom extends AgreggateRoot<StoreroomId> {
 
     private final String name;
-    private final List<ProductStock> productStocks;
+    private final List<ProductStockItem> productStockItems;
 
     public Storeroom(String name) {
         Objects.requireNonNull(name, "The name is required");
         this.name = name;
-        this.productStocks = new ArrayList<>();
+        this.productStockItems = new ArrayList<>();
         setId(new StoreroomId());
     }
 
     private Storeroom(Builder builder) {
         this.name = builder.theName;
-        this.productStocks = builder.theProductStocks;
+        this.productStockItems = builder.theProductStockItems;
         setId(builder.theStoreroomId);
     }
 
     void load(ProductId productId, Stock stock) {
-        this.productStocks.add(new ProductStock(this, productId, stock));
+        this.productStockItems.add(new ProductStockItem(this, productId, stock));
     }
     public Stock stockOf(ProductId productId) {
-        return productStocks.stream()
+        return productStockItems.stream()
                 .filter(ps -> ps.productId().equals(productId))
-                .map(ProductStock::stock)
+                .map(ProductStockItem::stock)
                 .findFirst().orElseThrow(() -> new ProductNotFoundException(productId));
     }
 
@@ -45,8 +45,8 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         return this.name;
     }
 
-    public List<ProductStock> products() {
-        return productStocks;
+    public List<ProductStockItem> products() {
+        return productStockItems;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
         return "Storeroom{"
                 + "id='" + id()
                 + ", name='" + name + '\''
-                + ", productStocks=" + productStocks
+                + ", productStockItems=" + productStockItems
                 + '}';
     }
 
@@ -62,7 +62,7 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
 
         private StoreroomId theStoreroomId;
         public final String theName;
-        private List<ProductStock> theProductStocks = new ArrayList<>();
+        private List<ProductStockItem> theProductStockItems = new ArrayList<>();
 
         public Builder(String name) {
             this.theName = name;
@@ -77,8 +77,8 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
             return this;
         }
 
-        public Builder withProductStocks(List<ProductStock> productStocks) {
-            this.theProductStocks = productStocks;
+        public Builder withProductStocks(List<ProductStockItem> productStockItems) {
+            this.theProductStockItems = productStockItems;
             return this;
         }
     }

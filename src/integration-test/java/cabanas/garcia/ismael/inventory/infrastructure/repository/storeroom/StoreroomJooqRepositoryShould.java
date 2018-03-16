@@ -4,7 +4,7 @@ import cabanas.garcia.ismael.inventory.Application;
 import cabanas.garcia.ismael.inventory.IntegrationTest;
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStockItem;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
@@ -50,9 +50,9 @@ public class StoreroomJooqRepositoryShould {
     public void save_product_stock_in_storeroom() {
         Storeroom storeroom = new Storeroom(SOME_NAME);
         storeroomRepository.save(storeroom);
-        ProductStock productStock = new ProductStock(storeroom, new ProductId(), new Stock(20));
+        ProductStockItem productStockItem = new ProductStockItem(storeroom, new ProductId(), new Stock(20));
 
-        storeroomRepository.saveProductStock(productStock);
+        storeroomRepository.saveProductStock(productStockItem);
 
         assertThat(DataBaseTestUtils.numberOfInsertedProductStockInTable(jdbcTemplate)).isEqualTo(1);
     }
@@ -62,13 +62,13 @@ public class StoreroomJooqRepositoryShould {
     public void find_storeroom_by_id_with_products() {
         Storeroom storeroom = new Storeroom(SOME_NAME);
         storeroomRepository.create(storeroom);
-        ProductStock productStock = new ProductStock(storeroom, new ProductId(), new Stock(20));
-        storeroomRepository.saveProductStock(productStock);
+        ProductStockItem productStockItem = new ProductStockItem(storeroom, new ProductId(), new Stock(20));
+        storeroomRepository.saveProductStock(productStockItem);
 
         Optional<Storeroom> storeroomActual = storeroomRepository.findById(storeroom.id());
 
         assertThat(storeroomActual.isPresent()).isTrue();
         assertThat(storeroomActual.get().name()).isEqualTo(SOME_NAME);
-        assertThat(storeroomActual.get().stockOf(productStock.productId())).isEqualTo(productStock.stock());
+        assertThat(storeroomActual.get().stockOf(productStockItem.productId())).isEqualTo(productStockItem.stock());
     }
 }

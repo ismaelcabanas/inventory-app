@@ -2,9 +2,9 @@ package cabanas.garcia.ismael.inventory.stubs;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStockItem;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
 import org.mockito.ArgumentCaptor;
 
@@ -34,7 +34,7 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
     }
 
     public void verifyProductStockWasSavedInStoreroom(Storeroom theStoreroom, ProductId productId, Stock stock) {
-        ArgumentCaptor<ProductStock> argCaptorProductStock = ArgumentCaptor.forClass(ProductStock.class);
+        ArgumentCaptor<ProductStockItem> argCaptorProductStock = ArgumentCaptor.forClass(ProductStockItem.class);
         verify(storeroomRepositoryMock, times(1)).saveProductStock(argCaptorProductStock.capture());
 
         assertThat(argCaptorProductStock.getValue().productId()).isEqualTo(productId);
@@ -62,8 +62,8 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
     }
 
     @Override
-    public void saveProductStock(ProductStock productStock) {
-        storeroomRepositoryMock.saveProductStock(productStock);
+    public void saveProductStock(ProductStockItem productStockItem) {
+        storeroomRepositoryMock.saveProductStock(productStockItem);
     }
 
     @Override
