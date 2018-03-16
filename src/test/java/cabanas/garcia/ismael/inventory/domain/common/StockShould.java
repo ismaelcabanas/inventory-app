@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.domain.common;
 
-import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.InvalidStockException;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.NotEnoughStockException;
+import cabanas.garcia.ismael.inventory.domain.common.exception.InvalidStockException;
+import cabanas.garcia.ismael.inventory.domain.common.exception.NotEnoughStockException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

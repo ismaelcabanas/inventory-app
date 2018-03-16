@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.productStock.model.exception;
+package cabanas.garcia.ismael.inventory.domain.common.exception;
 
 public class InvalidStockException extends RuntimeException {
     public InvalidStockException(String message) {
