@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.productStock.model;
+package cabanas.garcia.ismael.inventory.domain.common;
 
 import cabanas.garcia.ismael.inventory.domain.shared.ValueObject;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.exception.InvalidStockException;

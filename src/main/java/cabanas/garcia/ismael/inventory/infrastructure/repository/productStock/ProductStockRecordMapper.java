@@ -3,7 +3,7 @@ package cabanas.garcia.ismael.inventory.infrastructure.repository.productStock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStockId;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
+import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.jooq.autogen.tables.records.ProductStockRecord;
 import org.jooq.RecordMapper;

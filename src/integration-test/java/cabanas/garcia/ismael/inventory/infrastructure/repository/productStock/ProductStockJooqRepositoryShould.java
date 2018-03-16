@@ -4,7 +4,7 @@ import cabanas.garcia.ismael.inventory.Application;
 import cabanas.garcia.ismael.inventory.IntegrationTest;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
+import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductStockRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
