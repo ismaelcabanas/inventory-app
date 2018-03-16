@@ -8,6 +8,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Stock extends ValueObject<Stock> {
 
+    public static final Stock NONE = new Stock(0);
+
     private final int amount;
 
     public Stock(int amount) {

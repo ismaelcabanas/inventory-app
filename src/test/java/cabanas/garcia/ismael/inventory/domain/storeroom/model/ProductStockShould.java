@@ -1,5 +1,6 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom.model;
 
+import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
