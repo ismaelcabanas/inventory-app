@@ -2,6 +2,7 @@ package cabanas.garcia.ismael.inventory.domain.storeroom.model;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStockId;
 import cabanas.garcia.ismael.inventory.domain.shared.Entity;
 
 import java.util.Objects;
