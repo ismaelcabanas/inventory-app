@@ -46,7 +46,7 @@ public class StoreroomJooqRepository implements StoreroomRepository {
                 .columns(PRODUCT_STOCK.PS_ID, PRODUCT_STOCK.PS_PRODUCT_ID, PRODUCT_STOCK.PS_STOCK,
                         PRODUCT_STOCK.PS_STOREROOM_ID)
                 .values(productStockItem.id().value(), productStockItem.productId().value(), productStockItem.stock().value(),
-                        productStockItem.storeroom().id().value())
+                        productStockItem.storeroomId().value())
                 .execute();
     }
 
@@ -81,9 +81,7 @@ public class StoreroomJooqRepository implements StoreroomRepository {
         List<ProductStockItem> productStockItems = new ArrayList<>();
         result.forEach(rs -> productStockItems.add(
                 new ProductStockItem(
-                        Storeroom.builder(rs.getValue(STORE_ROOM.SR_NAME))
-                                .withId(new StoreroomId(rs.getValue(STORE_ROOM.SR_ID)))
-                                .build(),
+                        StoreroomId.builder(rs.getValue(STORE_ROOM.SR_ID)).build(),
                         ProductId.builder(rs.getValue(PRODUCT_STOCK.PS_PRODUCT_ID)).build(),
                         new Stock(rs.getValue(PRODUCT_STOCK.PS_STOCK))
                 )

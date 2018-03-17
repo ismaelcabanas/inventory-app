@@ -29,11 +29,11 @@ public class FakeStoreroomRepository implements StoreroomRepository {
 
     @Override
     public void saveProductStock(ProductStockItem productStockItem) {
-        if (productStocks.get(productStockItem.storeroom().id()) == null) {
-            productStocks.put(productStockItem.storeroom().id(), Arrays.asList(productStockItem));
+        if (productStocks.get(productStockItem.storeroomId()) == null) {
+            productStocks.put(productStockItem.storeroomId(), Arrays.asList(productStockItem));
             LOGGER.debug("Product {} saved", productStockItem);
         } else {
-            List<ProductStockItem> productStockItemList = productStocks.get(productStockItem.storeroom().id());
+            List<ProductStockItem> productStockItemList = productStocks.get(productStockItem.storeroomId());
             productStockItemList.add(productStockItem);
         }
     }

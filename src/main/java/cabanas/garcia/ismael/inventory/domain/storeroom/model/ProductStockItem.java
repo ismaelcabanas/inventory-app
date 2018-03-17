@@ -10,20 +10,20 @@ import java.util.Objects;
 public class ProductStockItem extends Entity<ProductStockId> {
     private final ProductId productId;
     private Stock stock;
-    private final Storeroom storeroom;
+    private final StoreroomId storeroomId;
 
-    public ProductStockItem(Storeroom storeroom, ProductId productId, Stock stock) {
+    public ProductStockItem(StoreroomId storeroomId, ProductId productId, Stock stock) {
         Objects.requireNonNull(productId, "ProductId must not be null");
         Objects.requireNonNull(stock, "Stock must not be null");
-        Objects.requireNonNull(storeroom, "A product must be associated to non null storeroom");
+        Objects.requireNonNull(storeroomId, "A product must be associated to non null storeroom");
         setId(new ProductStockId());
-        this.storeroom = storeroom;
+        this.storeroomId = storeroomId;
         this.productId = productId;
         this.stock = stock;
     }
 
-    public ProductStockItem(Storeroom storeroom, ProductId productId) {
-        this.storeroom = storeroom;
+    public ProductStockItem(StoreroomId storeroomId, ProductId productId) {
+        this.storeroomId = storeroomId;
         this.productId = productId;
         this.stock = Stock.NONE;
     }
@@ -36,13 +36,14 @@ public class ProductStockItem extends Entity<ProductStockId> {
         return this.stock;
     }
 
-    public Storeroom storeroom() {
-        return storeroom;
+    public StoreroomId storeroomId() {
+        return storeroomId;
     }
 
     @Override
     public String toString() {
         return "ProductStockItem{"
+                + "storeroomId=" + storeroomId
                 + "productId=" + productId
                 + ", stock=" + stock
                 + '}';

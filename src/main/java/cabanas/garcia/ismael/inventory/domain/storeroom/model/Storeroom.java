@@ -28,7 +28,7 @@ public class Storeroom extends AgreggateRoot<StoreroomId> {
     }
 
     void load(ProductId productId, Stock stock) {
-        this.productStockItems.add(new ProductStockItem(this, productId, stock));
+        this.productStockItems.add(new ProductStockItem(this.id(), productId, stock));
     }
     public Stock stockOf(ProductId productId) {
         return productStockItems.stream()

@@ -39,7 +39,7 @@ public class StoreroomSuccessRepositoryStub implements StoreroomRepository {
 
         assertThat(argCaptorProductStock.getValue().productId()).isEqualTo(productId);
         assertThat(argCaptorProductStock.getValue().stock()).isEqualTo(stock);
-        assertThat(argCaptorProductStock.getValue().storeroom()).isEqualTo(theStoreroom);
+        assertThat(argCaptorProductStock.getValue().storeroomId()).isEqualTo(theStoreroom.id());
     }
 
     public void verifyStoreroomIsSaved(Storeroom theStoreroom) {

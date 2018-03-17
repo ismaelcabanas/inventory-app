@@ -19,14 +19,14 @@ public class ProductStockShould {
     throw_exception_if_product_not_present_when_create_instance() {
         expectedException.expect(NullPointerException.class);
 
-        new ProductStockItem(SOME_STOREROOM, null, ACTUAL_STOCK);
+        new ProductStockItem(SOME_STOREROOM.id(), null, ACTUAL_STOCK);
     }
 
     @Test public void
     throw_exception_if_stock_not_present_when_create_instance() {
         expectedException.expect(NullPointerException.class);
 
-        new ProductStockItem(SOME_STOREROOM, new ProductId(), null);
+        new ProductStockItem(SOME_STOREROOM.id(), new ProductId(), null);
     }
 
     @Test public void

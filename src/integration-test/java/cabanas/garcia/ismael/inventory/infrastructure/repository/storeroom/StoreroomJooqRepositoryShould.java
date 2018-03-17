@@ -50,7 +50,7 @@ public class StoreroomJooqRepositoryShould {
     public void save_product_stock_in_storeroom() {
         Storeroom storeroom = new Storeroom(SOME_NAME);
         storeroomRepository.save(storeroom);
-        ProductStockItem productStockItem = new ProductStockItem(storeroom, new ProductId(), new Stock(20));
+        ProductStockItem productStockItem = new ProductStockItem(storeroom.id(), new ProductId(), new Stock(20));
 
         storeroomRepository.saveProductStock(productStockItem);
 
@@ -62,7 +62,7 @@ public class StoreroomJooqRepositoryShould {
     public void find_storeroom_by_id_with_products() {
         Storeroom storeroom = new Storeroom(SOME_NAME);
         storeroomRepository.create(storeroom);
-        ProductStockItem productStockItem = new ProductStockItem(storeroom, new ProductId(), new Stock(20));
+        ProductStockItem productStockItem = new ProductStockItem(storeroom.id(), new ProductId(), new Stock(20));
         storeroomRepository.saveProductStock(productStockItem);
 
         Optional<Storeroom> storeroomActual = storeroomRepository.findById(storeroom.id());
