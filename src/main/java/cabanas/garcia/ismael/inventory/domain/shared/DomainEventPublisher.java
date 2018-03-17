@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.common;
+package cabanas.garcia.ismael.inventory.domain.shared;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,10 +1,10 @@
 package cabanas.garcia.ismael.inventory.infrastructure.repository.storeroom;
 
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductId;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.common.Stock;
+import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStockItem;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.Stock;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
 import org.apache.commons.lang3.NotImplementedException;
 import org.jooq.DSLContext;
@@ -41,12 +41,12 @@ public class StoreroomJooqRepository implements StoreroomRepository {
     }
 
     @Override
-    public void saveProductStock(ProductStock productStock) {
+    public void saveProductStock(ProductStockItem productStockItem) {
         dslContext.insertInto(PRODUCT_STOCK)
                 .columns(PRODUCT_STOCK.PS_ID, PRODUCT_STOCK.PS_PRODUCT_ID, PRODUCT_STOCK.PS_STOCK,
                         PRODUCT_STOCK.PS_STOREROOM_ID)
-                .values(productStock.id().value(), productStock.productId().value(), productStock.stock().value(),
-                        productStock.storeroom().id().value())
+                .values(productStockItem.id().value(), productStockItem.productId().value(), productStockItem.stock().value(),
+                        productStockItem.storeroomId().value())
                 .execute();
     }
 
@@ -77,17 +77,15 @@ public class StoreroomJooqRepository implements StoreroomRepository {
         return storeroom;
     }
 
-    private List<ProductStock> mapProductStocks(List<Record> result) {
-        List<ProductStock> productStocks = new ArrayList<>();
-        result.forEach(rs -> productStocks.add(
-                new ProductStock(
-                        Storeroom.builder(rs.getValue(STORE_ROOM.SR_NAME))
-                                .withId(new StoreroomId(rs.getValue(STORE_ROOM.SR_ID)))
-                                .build(),
+    private List<ProductStockItem> mapProductStocks(List<Record> result) {
+        List<ProductStockItem> productStockItems = new ArrayList<>();
+        result.forEach(rs -> productStockItems.add(
+                new ProductStockItem(
+                        StoreroomId.builder(rs.getValue(STORE_ROOM.SR_ID)).build(),
                         ProductId.builder(rs.getValue(PRODUCT_STOCK.PS_PRODUCT_ID)).build(),
                         new Stock(rs.getValue(PRODUCT_STOCK.PS_STOCK))
                 )
         ));
-        return productStocks;
+        return productStockItems;
     }
 }

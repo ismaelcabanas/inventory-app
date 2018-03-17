@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.domain.product.event;
 
-import cabanas.garcia.ismael.inventory.domain.common.DomainEvent;
+import cabanas.garcia.ismael.inventory.domain.shared.DomainEvent;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

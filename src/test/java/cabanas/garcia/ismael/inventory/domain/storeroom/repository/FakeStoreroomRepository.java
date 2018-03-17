@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom.repository;
 
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStockItem;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ public class FakeStoreroomRepository implements StoreroomRepository {
     private static final Logger LOGGER = LoggerFactory.getLogger(FakeStoreroomRepository.class.getName());
 
     private Set<Storeroom> storerooms = new HashSet<>();
-    private Map<StoreroomId, List<ProductStock>> productStocks = new HashMap<>();
+    private Map<StoreroomId, List<ProductStockItem>> productStocks = new HashMap<>();
 
     @Override
     public void save(Storeroom storeroom) {
@@ -28,13 +28,13 @@ public class FakeStoreroomRepository implements StoreroomRepository {
     }
 
     @Override
-    public void saveProductStock(ProductStock productStock) {
-        if (productStocks.get(productStock.storeroom().id()) == null) {
-            productStocks.put(productStock.storeroom().id(), Arrays.asList(productStock));
-            LOGGER.debug("Product {} saved", productStock);
+    public void saveProductStock(ProductStockItem productStockItem) {
+        if (productStocks.get(productStockItem.storeroomId()) == null) {
+            productStocks.put(productStockItem.storeroomId(), Arrays.asList(productStockItem));
+            LOGGER.debug("Product {} saved", productStockItem);
         } else {
-            List<ProductStock> productStockList = productStocks.get(productStock.storeroom().id());
-            productStockList.add(productStock);
+            List<ProductStockItem> productStockItemList = productStocks.get(productStockItem.storeroomId());
+            productStockItemList.add(productStockItem);
         }
     }
 

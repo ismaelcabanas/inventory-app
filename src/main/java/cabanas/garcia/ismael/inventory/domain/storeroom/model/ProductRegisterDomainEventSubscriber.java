@@ -1,7 +1,8 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom.model;
 
-import cabanas.garcia.ismael.inventory.domain.common.DomainEvent;
-import cabanas.garcia.ismael.inventory.domain.common.DomainEventSubscriber;
+import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.shared.DomainEvent;
+import cabanas.garcia.ismael.inventory.domain.shared.DomainEventSubscriber;
 import cabanas.garcia.ismael.inventory.domain.product.event.ProductRegisteredEvent;
 import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
 import org.slf4j.Logger;
@@ -31,8 +32,8 @@ public class ProductRegisterDomainEventSubscriber implements DomainEventSubscrib
 
         storerooms.forEach(storeroom -> {
             ProductRegisteredEvent event = (ProductRegisteredEvent) domainEvent;
-            ProductStock productStock = new ProductStock(storeroom, ProductId.builder(event.getProductId()).build());
-            storeroomRepository.saveProductStock(productStock);
+            ProductStockItem productStockItem = new ProductStockItem(storeroom.id(), ProductId.builder(event.getProductId()).build());
+            storeroomRepository.saveProductStock(productStockItem);
         });
     }
 }

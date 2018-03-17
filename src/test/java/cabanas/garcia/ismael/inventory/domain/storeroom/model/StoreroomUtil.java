@@ -1,5 +1,8 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom.model;
 
+import cabanas.garcia.ismael.inventory.domain.common.Stock;
+import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+
 public final class StoreroomUtil {
 
     private StoreroomUtil() { }

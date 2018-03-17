@@ -1,11 +1,13 @@
-package cabanas.garcia.ismael.inventory.domain.storeroom.model;
+package cabanas.garcia.ismael.inventory.domain.common;
 
-import cabanas.garcia.ismael.inventory.domain.common.ValueObject;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.InvalidStockException;
+import cabanas.garcia.ismael.inventory.domain.shared.ValueObject;
+import cabanas.garcia.ismael.inventory.domain.common.exception.InvalidStockException;
+import cabanas.garcia.ismael.inventory.domain.common.exception.NotEnoughStockException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Stock extends ValueObject<Stock> {
+
     public static final Stock NONE = new Stock(0);
 
     private final int amount;
@@ -17,9 +19,19 @@ public class Stock extends ValueObject<Stock> {
         this.amount = amount;
     }
 
-
     public int value() {
         return amount;
+    }
+
+    public Stock decrease(Stock stock) {
+        if (amount - stock.value() < 0) {
+            throw new NotEnoughStockException();
+        }
+        return new Stock(amount - stock.value());
+    }
+
+    public Stock increase(Stock stock) {
+        return new Stock(amount + stock.value());
     }
 
     @Override

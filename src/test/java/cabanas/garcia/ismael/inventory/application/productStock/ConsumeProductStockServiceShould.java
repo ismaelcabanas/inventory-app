@@ -1,10 +1,10 @@
 package cabanas.garcia.ismael.inventory.application.productStock;
 
-import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductId;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.Stock;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.StoreroomId;
+import cabanas.garcia.ismael.inventory.domain.common.Stock;
+import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductStockRepository;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
 import cabanas.garcia.ismael.inventory.stubs.ProductStockSuccessRepositoryStub;
 import org.junit.Rule;
 import org.junit.Test;

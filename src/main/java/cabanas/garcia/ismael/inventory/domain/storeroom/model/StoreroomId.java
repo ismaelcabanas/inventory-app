@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom.model;
 
-import cabanas.garcia.ismael.inventory.domain.common.ValueObject;
+import cabanas.garcia.ismael.inventory.domain.shared.ValueObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -16,6 +16,10 @@ public final class StoreroomId extends ValueObject<StoreroomId> {
 
     public StoreroomId(String id) {
         this.id = id;
+    }
+
+    private StoreroomId(Builder builder) {
+        this.id = builder.storeroomId;
     }
 
     @Override
@@ -41,5 +45,21 @@ public final class StoreroomId extends ValueObject<StoreroomId> {
 
     public String value() {
         return id;
+    }
+
+    public static Builder builder(String id) {
+        return new Builder(id);
+    }
+
+    public static class Builder {
+        private final String storeroomId;
+
+        public Builder(String id) {
+            this.storeroomId = id;
+        }
+
+        public StoreroomId build() {
+            return new StoreroomId(this);
+        }
     }
 }
