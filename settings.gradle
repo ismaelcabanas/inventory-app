@@ -1,2 +1,4 @@
 rootProject.name = 'inventory-app'
 
+include 'inventory-core'
+include 'inventory-api-rest'

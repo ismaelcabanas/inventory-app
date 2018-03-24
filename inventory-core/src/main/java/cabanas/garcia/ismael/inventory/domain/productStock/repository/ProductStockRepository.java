@@ -1,0 +1,13 @@
+package cabanas.garcia.ismael.inventory.domain.productStock.repository;
+
+import cabanas.garcia.ismael.inventory.domain.product.ProductId;
+import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
+
+import java.util.Optional;
+
+public interface ProductStockRepository {
+    void save(ProductStock productStock);
+
+    Optional<ProductStock> findBy(StoreroomId storeroomId, ProductId productId);
+}
