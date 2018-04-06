@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.productStock.model;
+package cabanas.garcia.ismael.inventory.domain.productStock;
 
 import cabanas.garcia.ismael.inventory.domain.shared.ValueObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;

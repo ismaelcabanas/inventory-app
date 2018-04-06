@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.infrastructure.configuration.productStock;
 
-import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductStockRepository;
+import cabanas.garcia.ismael.inventory.domain.productStock.ProductStockRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.productStock.ProductStockJooqRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.productStock.ProductStockRecordMapper;
 import org.jooq.DSLContext;
