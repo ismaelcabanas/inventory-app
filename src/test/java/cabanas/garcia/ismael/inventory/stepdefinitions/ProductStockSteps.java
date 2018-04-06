@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.stepdefinitions;
 
 import cabanas.garcia.ismael.inventory.domain.product.ProductId;
-import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
+import cabanas.garcia.ismael.inventory.domain.productStock.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.common.exception.NotEnoughStockException;
 import cabanas.garcia.ismael.inventory.domain.storeroom.StoreroomId;
