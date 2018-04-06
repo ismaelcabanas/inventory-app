@@ -1,9 +1,8 @@
-package cabanas.garcia.ismael.inventory.domain.product.model;
+package cabanas.garcia.ismael.inventory.domain.product;
 
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEvent;
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEventPublisher;
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEventSubscriber;
-import cabanas.garcia.ismael.inventory.domain.product.event.ProductRegisteredEvent;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

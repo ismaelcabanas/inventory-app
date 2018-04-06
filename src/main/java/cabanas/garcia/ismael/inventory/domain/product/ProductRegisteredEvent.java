@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.product.event;
+package cabanas.garcia.ismael.inventory.domain.product;
 
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEvent;
 

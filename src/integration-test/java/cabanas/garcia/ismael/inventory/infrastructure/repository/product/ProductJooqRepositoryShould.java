@@ -2,8 +2,8 @@ package cabanas.garcia.ismael.inventory.infrastructure.repository.product;
 
 import cabanas.garcia.ismael.inventory.Application;
 import cabanas.garcia.ismael.inventory.IntegrationTest;
-import cabanas.garcia.ismael.inventory.domain.product.model.Product;
-import cabanas.garcia.ismael.inventory.domain.product.repository.ProductRepository;
+import cabanas.garcia.ismael.inventory.domain.product.Product;
+import cabanas.garcia.ismael.inventory.domain.product.ProductRepository;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.util.DataBaseTestUtils;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

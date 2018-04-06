@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.product.model;
+package cabanas.garcia.ismael.inventory.domain.product;
 
 public final class ProductUtil {
     private ProductUtil() {

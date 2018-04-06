@@ -1,8 +1,7 @@
-package cabanas.garcia.ismael.inventory.domain.product.model;
+package cabanas.garcia.ismael.inventory.domain.product;
 
 import cabanas.garcia.ismael.inventory.domain.shared.AgreggateRoot;
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEventPublisher;
-import cabanas.garcia.ismael.inventory.domain.product.event.ProductRegisteredEvent;
 
 import java.util.Objects;
 

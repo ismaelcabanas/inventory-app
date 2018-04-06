@@ -1,8 +1,8 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
-import cabanas.garcia.ismael.inventory.domain.product.event.ProductRegisteredEvent;
-import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.product.ProductRegisteredEvent;
+import cabanas.garcia.ismael.inventory.domain.product.ProductId;
 import cabanas.garcia.ismael.inventory.stubs.StoreroomSuccessRepositoryStub;
 import org.junit.Rule;
 import org.junit.Test;

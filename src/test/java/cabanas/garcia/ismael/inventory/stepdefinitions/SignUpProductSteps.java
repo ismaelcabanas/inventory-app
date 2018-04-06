@@ -1,9 +1,9 @@
 package cabanas.garcia.ismael.inventory.stepdefinitions;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
-import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.product.ProductId;
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEventPublisher;
-import cabanas.garcia.ismael.inventory.domain.product.model.Product;
+import cabanas.garcia.ismael.inventory.domain.product.Product;
 import cabanas.garcia.ismael.inventory.domain.storeroom.ProductRegisterDomainEventSubscriber;
 import cabanas.garcia.ismael.inventory.domain.storeroom.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.FakeStoreroomRepository;
