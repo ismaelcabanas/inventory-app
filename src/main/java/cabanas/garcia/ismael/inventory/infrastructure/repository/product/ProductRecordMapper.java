@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.infrastructure.repository.product;
 
-import cabanas.garcia.ismael.inventory.domain.product.model.Product;
-import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.product.Product;
+import cabanas.garcia.ismael.inventory.domain.product.ProductId;
 import cabanas.garcia.ismael.inventory.infrastructure.repository.jooq.autogen.tables.records.ProductRecord;
 import org.jooq.RecordMapper;
 

@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.domain.storeroom;
 
-import cabanas.garcia.ismael.inventory.domain.product.event.ProductRegisteredEvent;
-import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.product.ProductRegisteredEvent;
+import cabanas.garcia.ismael.inventory.domain.product.ProductId;
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEvent;
 import cabanas.garcia.ismael.inventory.domain.shared.DomainEventSubscriber;
 import org.slf4j.Logger;

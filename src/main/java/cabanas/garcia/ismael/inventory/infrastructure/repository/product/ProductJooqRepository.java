@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.infrastructure.repository.product;
 
-import cabanas.garcia.ismael.inventory.domain.product.model.Product;
-import cabanas.garcia.ismael.inventory.domain.product.repository.ProductRepository;
+import cabanas.garcia.ismael.inventory.domain.product.Product;
+import cabanas.garcia.ismael.inventory.domain.product.ProductRepository;
 import org.jooq.DSLContext;
 
 import java.util.Objects;

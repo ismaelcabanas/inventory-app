@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.stubs;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
-import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
+import cabanas.garcia.ismael.inventory.domain.product.ProductId;
 import cabanas.garcia.ismael.inventory.domain.storeroom.ProductStockItem;
 import cabanas.garcia.ismael.inventory.domain.storeroom.Storeroom;
 import cabanas.garcia.ismael.inventory.domain.storeroom.StoreroomId;
