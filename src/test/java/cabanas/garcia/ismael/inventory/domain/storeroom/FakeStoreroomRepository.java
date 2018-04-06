@@ -1,16 +1,13 @@
-package cabanas.garcia.ismael.inventory.domain.storeroom.repository;
+package cabanas.garcia.ismael.inventory.domain.storeroom;
 
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStockItem;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Collectors;

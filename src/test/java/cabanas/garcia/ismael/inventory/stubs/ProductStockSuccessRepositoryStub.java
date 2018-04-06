@@ -4,7 +4,7 @@ import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
 import cabanas.garcia.ismael.inventory.domain.productStock.model.ProductStock;
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.productStock.repository.ProductStockRepository;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
+import cabanas.garcia.ismael.inventory.domain.storeroom.StoreroomId;
 import org.assertj.core.api.Assertions;
 import org.mockito.ArgumentCaptor;
 

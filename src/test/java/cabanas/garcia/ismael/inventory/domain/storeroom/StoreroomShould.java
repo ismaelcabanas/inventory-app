@@ -1,8 +1,7 @@
-package cabanas.garcia.ismael.inventory.domain.storeroom.model;
+package cabanas.garcia.ismael.inventory.domain.storeroom;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions.ProductNotFoundException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

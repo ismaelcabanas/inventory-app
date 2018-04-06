@@ -2,10 +2,10 @@ package cabanas.garcia.ismael.inventory.infrastructure.repository.storeroom;
 
 import cabanas.garcia.ismael.inventory.domain.common.Stock;
 import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.ProductStockItem;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.StoreroomId;
-import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
+import cabanas.garcia.ismael.inventory.domain.storeroom.ProductStockItem;
+import cabanas.garcia.ismael.inventory.domain.storeroom.Storeroom;
+import cabanas.garcia.ismael.inventory.domain.storeroom.StoreroomId;
+import cabanas.garcia.ismael.inventory.domain.storeroom.StoreroomRepository;
 import org.apache.commons.lang3.NotImplementedException;
 import org.jooq.DSLContext;
 import org.jooq.Record;

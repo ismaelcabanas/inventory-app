@@ -1,7 +1,7 @@
 package cabanas.garcia.ismael.inventory.application.storeroom;
 
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
-import cabanas.garcia.ismael.inventory.domain.storeroom.repository.StoreroomRepository;
+import cabanas.garcia.ismael.inventory.domain.storeroom.Storeroom;
+import cabanas.garcia.ismael.inventory.domain.storeroom.StoreroomRepository;
 
 public class RegisterStoreroomService {
     private final StoreroomRepository storeroomRepository;

@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.inventory.stepdefinitions;
 
-import cabanas.garcia.ismael.inventory.domain.storeroom.model.Storeroom;
+import cabanas.garcia.ismael.inventory.domain.storeroom.Storeroom;
 import cucumber.api.java8.En;
 
 import static org.assertj.core.api.Assertions.assertThat;

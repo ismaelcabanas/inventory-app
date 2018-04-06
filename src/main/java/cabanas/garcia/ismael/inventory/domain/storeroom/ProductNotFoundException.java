@@ -1,4 +1,4 @@
-package cabanas.garcia.ismael.inventory.domain.storeroom.model.exceptions;
+package cabanas.garcia.ismael.inventory.domain.storeroom;
 
 import cabanas.garcia.ismael.inventory.domain.product.model.ProductId;
 
